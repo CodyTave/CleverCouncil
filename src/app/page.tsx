@@ -1,113 +1,174 @@
-import Image from 'next/image'
+"use client";
+import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
+import Title from "@/app/Components/Title";
+import { gsap } from "gsap";
+import { Clevers } from "./constants";
 
 export default function Home() {
+  const [selectedClever, setClever] = useState(Clevers[1]);
+  const [dragging, setDragging] = useState<boolean>(false);
+  const [dragStartX, setDragStartX] = useState<number>(0);
+  const [isAnimating, setAnimating] = useState(false);
+  function isMobile(): boolean {
+    return window.innerWidth < 750;
+  }
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+    tl.to(".cleverr", {
+      duration: 0.1,
+      ease: "power2.inOut",
+      letterSpacing: isMobile() ? 5 : 10,
+    });
+    tl.to(".cleverr", {
+      duration: 1,
+      ease: "power2.inOut",
+      letterSpacing: 5,
+    });
+  }, [selectedClever]);
+
+  const handleDragStart = (clientX: number) => {
+    if (!isAnimating) {
+      setDragging(true);
+      setDragStartX(clientX);
+    }
+  };
+
+  const handleDragEnd = (clientX: number) => {
+    if (dragging && !isAnimating) {
+      const dragDistance = clientX - dragStartX;
+
+      if (dragDistance < -20 && selectedClever.index < Clevers.length - 1) {
+        setClever(Clevers[selectedClever.index + 1]);
+      } else if (dragDistance > 20 && selectedClever.index > 0) {
+        setClever(Clevers[selectedClever.index - 1]);
+      }
+      setDragging(false);
+      setDragStartX(0);
+    }
+  };
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    handleDragStart(e.touches[0].clientX);
+  };
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    handleDragEnd(e.changedTouches[0].clientX);
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className={`w-screen h-screen ${selectedClever.bg} transall gate`}>
+      <AnimatePresence>
+        <motion.span
+          key={selectedClever.id}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          onClick={() => window.open(selectedClever.links[0].url)}
+        >
+          <Image
+            className="absolute g_sm:top-20 g_sm:left-28  top-10 left-10 w-32 g_sm:w-36 transall cursor-pointer"
+            src={selectedClever.logo}
+            alt={selectedClever.title}
+          />
+        </motion.span>
+      </AnimatePresence>
+      <div className="absolute transall g_md:right-1/2 g_sm:top-20  g_sm:right-28 g_sm:-translate-x-1/2 top-8 right-10 flex gap-3 items-center ">
+        {Clevers.map((clev) => (
+          <div
+            onClick={() => {
+              if (!isAnimating) {
+                setClever(clev);
+              }
+            }}
+            key={clev.id}
+            className={` transall w-[2px] rounded-xl cursor-pointer ${
+              selectedClever.id === clev.id
+                ? `h-10 ${clev.color}`
+                : "h-7 bg-[#2F3165]"
+            }`}
+          ></div>
+        ))}
+      </div>
+      <div className="flex g_xl:gap-14 h-full justify-center items-center  transall">
+        {Clevers.map((clev) => (
+          // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
+          <Image
+            key={clev.id}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            onClick={() => {
+              if (!isAnimating && clev.id !== selectedClever.id) {
+                setClever(clev);
+              } else if (!isAnimating) {
+                window.open(selectedClever.links[0].url);
+              }
+            }}
+            className={`transall relative w-auto max-w-[60%]
+            g_xs:h-auto h-1/2 object-cover 
+            ${selectedClever.id === clev.id && "cursor-pointer"}
+            ${selectedClever.position} ${
+              selectedClever.id !== clev.id
+                ? " grayscale blur-[3px] scale-75 hover:blur-0 hover:grayscale-0 "
+                : "scale-100"
+            }`}
+            src={clev.image}
+            alt={clev.title}
+          />
+        ))}
+        <div
+          className={`
+          font-extrabold transall ${selectedClever.text}  absolute cleverr tracking-wide cleverWidth
+          g_xl:text-8xl  g_mmd:text-8xl g_sm:text-5xl g_xxs:text-4xl g_tn:text-xl text-sm truncate
+          g_xl:bottom-48 g_lg:bottom-28 g_md:bottom-[20%] g_mmd:bottom-[18%] g_sm:bottom-[34%] g_msm:bottom-[36%] g_xs:bottom-[36%] bottom-28
+          g_xl:left-60 g_lg:left-48 g_md:left-36 g_mmd:left-24 g_sm:left-20 g_msm:left-20 
+        g_xs:block hidden
+        
+            `}
+        >
+          CLEVER
+        </div>
+
+        <div
+          className={`g_xl:text-8xl g_mmd:text-7xl g_sm:text-5xl g_xxs:text-4xl g_tn:text-3xl text-sm
+           z-50 g_xl:h-64 g_lg:h-48 g_mmd:h-48 g_md: g_sm:h-24 h-18
+          absolute tracking-wider transall font-extrabold overflow-hidden truncate
+         g_xl:top-48 g_lg:top-28 g_md:top-[20%] g_mmd:top-[18%] g_sm:top-[34%] g_msm:top-[36%] g_xs:top-[36%] top-28
+         g_lg:right-48 g_md:right-36 g_mmd:right-20 g_sm:right-28 g_msm:right-20 
+          `}
+        >
+          <Title
+            setAnimating={(arg: boolean) => setAnimating(arg)}
+            prtitle={selectedClever.title}
+          />
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
+      <div className="absolute bottom-10 g_xxs:left-10 left-5 flex text-left gap-2">
+        {selectedClever.links.map((link) => (
+          <a
+            target="__blank"
+            href={link.url}
+            key={link.id}
+            className="flex justify-center items-center gap-1 transall"
+          >
+            <span
+              className={`font-bold text-xs ${selectedClever.text} hover:underline cursor-pointer transall`}
+            >
+              {link.title}
             </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+            <svg width="9" height="8" viewBox="0 0 12 11">
+              <path
+                className="transall"
+                fill={selectedClever.svg}
+                d="M9.142 0.603373L3.0821 0.232926L2.96008 2.2289L7.60841 2.51305L0.119065 9.13949L1.44435 10.6374L8.9337 4.01092L8.64954 8.65925L10.6455 8.78127L11.016 2.72136C11.0482 2.19201 10.869 1.67152 10.5175 1.27434C10.1661 0.877159 9.67134 0.635812 9.142 0.603373Z"
+              />
+            </svg>
+          </a>
+        ))}
       </div>
     </main>
-  )
+  );
 }
