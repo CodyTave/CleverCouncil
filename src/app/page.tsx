@@ -5,12 +5,14 @@ import Image from "next/image";
 import Title from "@/app/Components/Title";
 import { gsap } from "gsap";
 import { Clevers } from "./constants";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [selectedClever, setClever] = useState(Clevers[1]);
   const [dragging, setDragging] = useState<boolean>(false);
   const [dragStartX, setDragStartX] = useState<number>(0);
   const [isAnimating, setAnimating] = useState(false);
+  const router = useRouter();
   function isMobile(): boolean {
     return window.innerWidth < 750;
   }
@@ -93,9 +95,8 @@ export default function Home() {
           ></div>
         ))}
       </div>
-      <div className="flex g_xl:gap-14 h-full justify-center items-center  transall">
+      <div className="flex g_xl:gap-14 h-full justify-center items-center  transall g_xs:mt-8 mt-12">
         {Clevers.map((clev) => (
-          // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
           <Image
             key={clev.id}
             onTouchStart={handleTouchStart}
@@ -104,7 +105,7 @@ export default function Home() {
               if (!isAnimating && clev.id !== selectedClever.id) {
                 setClever(clev);
               } else if (!isAnimating) {
-                window.open(selectedClever.links[0].url);
+                router.push(selectedClever.links[0].url);
               }
             }}
             className={`transall relative w-auto max-w-[60%]

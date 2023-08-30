@@ -1,4 +1,3 @@
-import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Cabinet expert en renforcement de capacité et training innovant, coaching, formation et certification, conception et Intégration de solutions Agiles complexes aux standards internationaux.",
   icons: {
-    icon: "/com.svg",
+    icon: "/academy.svg",
   },
 };
 

@@ -1,27 +1,27 @@
+"use client";
 import "../globals.css";
-import { Work_Sans } from "next/font/google";
-import type { Metadata } from "next";
-import LandingPage from "./LandingPage";
+import Navbar from "./Sections/Navbar";
+import Hero from "./Sections/Hero";
+import Refs from "./Sections/Refs";
+import About from "./Sections/About";
+import Offre from "./Sections/Offre";
+import Categories from "./Sections/Categories";
+import Contact from "./Sections/Contact";
+import Footer from "./Sections/Footer";
+import Dna from "./Sections/Dna";
 
-export const metadata: Metadata = {
-  title: "Clever Academy",
-  description:
-    "Cabinet expert en renforcement de capacité et training innovant, coaching, formation et certification, conception et Intégration de solutions Agiles complexes aux standards internationaux.",
-  icons: {
-    icon: "/academy.svg",
-  },
-};
-
-const work_sans = Work_Sans({
-  subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
-  display: "swap",
-});
-
-export default function Academy() {
+export default function LandingPage() {
   return (
-    <section className={work_sans.className}>
-      <LandingPage />
+    <section id="top" className="grid c-academy">
+      <Navbar splitbg />
+      <Hero />
+      <Refs />
+      <About />
+      <Offre />
+      <Categories />
+      <Dna />
+      <Contact />
+      <Footer />
     </section>
   );
 }

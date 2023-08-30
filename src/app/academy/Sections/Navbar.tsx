@@ -1,7 +1,9 @@
+"use client";
 import { Logo } from "@/assets";
 import { useState } from "react";
 import { navLinks } from "../Constants/constants";
 import ToggleBurger from "../Components/ToggleBurger";
+import NextLink from "next/link";
 import { Link } from "react-scroll";
 import Image from "next/image";
 interface props {
@@ -16,7 +18,9 @@ function Navbar({ splitbg = false }: props) {
           splitbg ? "splitbg" : "bg-secondary-0"
         }  p-10 px-32 justify-items-center items-center gap-20 `}
       >
-        <Image className="cursor-pointer" alt="Clever Council" src={Logo} />
+        <NextLink href={"/academy"}>
+          <Image className="cursor-pointer" alt="Clever Council" src={Logo} />
+        </NextLink>
         {navLinks.map((nav) => (
           <Link
             smooth
@@ -36,7 +40,9 @@ function Navbar({ splitbg = false }: props) {
 
       <nav className="grid xlg:hidden transall h-auto gap-x-10 bg-secondary-0 p-10 ">
         <div className="flex  justify-center items-center xs:gap-20 xxs:gap-10 gap-4  ">
-          <Image className="cursor-pointer" src={Logo} alt="Clever Council" />
+          <NextLink href={"/academy"}>
+            <Image className="cursor-pointer" src={Logo} alt="Clever Council" />
+          </NextLink>
           <ToggleBurger
             toggled={toggled}
             setToggle={() => {

@@ -1,5 +1,6 @@
 import { ensei, fb, histoire, ig, linked, valeur, vision } from "@/assets";
 
+
 export const navLinks: Array<{
   id: string;
   title: string;

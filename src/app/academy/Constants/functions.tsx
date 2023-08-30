@@ -26,3 +26,7 @@ export function refsDevider(allRefs: Array<reference>) {
 
   return refs;
 }
+
+export const ImageBaseUrl = (url: string, w?: number, h?: number) => {
+  return "https://clevercouncil.com/" + url + (w && h ? `?w=${w}&h=${h}` : "");
+};

@@ -90,6 +90,11 @@ img {
   all: unset;
 }
 
+/* .dropdown {
+  appearance: none; 
+  -webkit-appearance: none; 
+} */
+
 /* clever academy css */
 
 .splitbg {

@@ -88,6 +88,8 @@ function Refs() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          key={displayedRefs}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
           className="grid lg:hidden grid-cols-2 mt-10  justify-items-center gap-5 gap-y-10"
         >
           {refsArray[displayedRefs].map((ref) => (

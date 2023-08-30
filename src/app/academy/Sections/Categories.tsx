@@ -1,5 +1,7 @@
+import Link from "next/link";
 import CategoryCard from "../Components/CategoryCard";
 import { categories } from "../Constants/MockData";
+import { ImageBaseUrl } from "../Constants/functions";
 
 function Categories() {
   return (
@@ -10,7 +12,16 @@ function Categories() {
         </h1>
         <div className="flex overflow-auto my-20 category-scrollbar pb-10 transall ">
           {categories.map((cat) => (
-            <CategoryCard key={cat.id} img={cat.image} title={cat.title} />
+            <Link
+              target="_blank"
+              href={"/academy/categorie/" + cat.link}
+              key={cat.id}
+            >
+              <CategoryCard
+                img={ImageBaseUrl(cat.Image, 376, 267)}
+                title={cat.title}
+              />
+            </Link>
           ))}
         </div>
       </div>

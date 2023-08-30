@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        aca: { 0: "#009fe3", 1: "#1187B9", 2: "#F1FBFF" },
+        aca: { 0: "#009fe3", 1: "#1187B9", 2: "#F1FBFF", 3: "#ecf9ff" },
         tech: { 0: "#CF4187", 1: "#B02D6E", 2: "#FDF5F9" },
         com: { 0: "#C6A180", 1: "#FFF9F4" },
         secondary: {
@@ -23,7 +23,7 @@ const config: Config = {
         ph: { 0: "#ababc4", 1: "#e3e3ec", 2: "#f4f4f4", 3: "#636496" },
       },
       backgroundColor: {
-        aca: { 0: "#009fe3", 1: "#1187B9", 2: "#F1FBFF" },
+        aca: { 0: "#009fe3", 1: "#1187B9", 2: "#F1FBFF", 3: "#ecf9ff" },
         tech: { 0: "#CF4187", 1: "#B02D6E", 2: "#FDF5F9" },
         com: { 0: "#C6A180", 1: "#FFF9F4" },
         secondary: {
