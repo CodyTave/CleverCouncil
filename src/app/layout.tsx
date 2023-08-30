@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import "./globals.css";
 import type { Metadata } from "next";
 
@@ -17,6 +18,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+
       <body>{children}</body>
     </html>
   );
