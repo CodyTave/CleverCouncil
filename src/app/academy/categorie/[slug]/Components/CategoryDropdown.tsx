@@ -19,7 +19,7 @@ export default function CategoryDropdown({ CatID }: { CatID: number }) {
     <select
       value={CatID}
       onChange={handleOptionChange}
-      className="bg-secondary-0 border truncate border-light-0 p-5 outline-none lg:w-96 w-80 dropdown text-light-0 "
+      className="bg-secondary-0 border truncate border-light-0 p-5 outline-none lg:w-96 mlg:w-80 w-full dropdown text-light-0 "
     >
       {categories.map((cat) => (
         <option

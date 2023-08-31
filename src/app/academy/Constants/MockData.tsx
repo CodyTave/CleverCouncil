@@ -72,6 +72,8 @@ export const Offres = [
   },
 ];
 
+///////////////////////////////////////////////////////--------------------------------------------
+
 export const categories = [
   {
     id: 1,
@@ -89,7 +91,7 @@ export const categories = [
         id: 1,
         title: "Bases de données et Big Data",
         content:
-          "Notre offre de formation intégrée couvre l’essentiel des bases de données sur le marché pour vous aider à structurer au mieux vos données opérationnelles avec des outils tels qu'Oracle, Db2, Mysql, ainsi que le Big Data pour gérer vos entrepôts de données complexes et hétérogènes notamment avec Cassandra, MongoDB, Couchbase, Splunk et Hadoop ainsi que le data mining.",
+          "Notre offre de formation intégrée couvre l’essentiel des bases de données sur le marché pour vous aider à structurer au mieux vos données opérationnelles avec des outils tels qu'Oracle, Db2, Mysql, ainsi que le Big Data pour gérer vos entrepôts de données complexes et hétérogènes notamment avec Cassandra, MongoDB, Couchbase, Splunk et Hadoop ainsi que le data mining",
       },
       {
         id: 2,

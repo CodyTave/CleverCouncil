@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import { JsxElement } from "typescript";
 
 interface reference {
   id: string;
@@ -29,4 +30,18 @@ export function refsDevider(allRefs: Array<reference>) {
 
 export const ImageBaseUrl = (url: string, w?: number, h?: number) => {
   return "https://clevercouncil.com/" + url + (w && h ? `?w=${w}&h=${h}` : "");
+};
+
+export const LineDecoder = (text: string) => {
+  const noFinishDot =
+    text.charAt(text.length - 1) === "."
+      ? text.slice(0, text.length - 1)
+      : text;
+  const sections: string[] = noFinishDot.split(".");
+  return sections.map((line, id) => (
+    <>
+      {`${sections.length === id - 1 ? line : `${line}.`}`}
+      <br />
+    </>
+  ));
 };
