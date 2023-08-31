@@ -12,11 +12,7 @@ function Categories() {
         </h1>
         <div className="flex overflow-auto my-20 category-scrollbar pb-10 transall ">
           {categories.map((cat) => (
-            <Link
-              target="_blank"
-              href={"/academy/categorie/" + cat.link}
-              key={cat.id}
-            >
+            <Link href={"/academy/categorie/" + cat.link} key={cat.id}>
               <CategoryCard
                 img={ImageBaseUrl(cat.Image, 376, 267)}
                 title={cat.title}

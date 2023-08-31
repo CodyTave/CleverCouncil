@@ -1,10 +1,11 @@
+"use client";
 import { address, phone } from "@/assets";
 import { contactInfo } from "../Constants/constants";
 import Image from "next/image";
 
 function Contact() {
   return (
-    <div id="contact" className="mt-20 h-[460px] relative">
+    <div id="contact" className=" h-[460px] relative">
       <iframe
         className="w-full h-full  border-0"
         src={contactInfo.map}

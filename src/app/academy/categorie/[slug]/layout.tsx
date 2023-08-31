@@ -1,9 +1,11 @@
-import Link from "next/link";
+"use client"
 import Navbar from "../../Sections/Navbar";
 import type { ReactNode } from "react";
-import { categories } from "../../Constants/MockData";
 import { getCategorie } from "../../Services/Services";
 import CategoryDropdown from "./Components/CategoryDropdown";
+import { notFound } from "next/navigation";
+import Contact from "../../Sections/Contact";
+import Footer from "../../Sections/Footer";
 
 export default function CategoryLayout({
   children,
@@ -12,7 +14,9 @@ export default function CategoryLayout({
   children: ReactNode;
   params: { slug: string };
 }) {
-  const CatID = getCategorie(params.slug);
+  const CatID = getCategorie(params.slug)
+    ? getCategorie(params.slug)
+    : notFound();
   return (
     <section>
       <Navbar splitbg={false} />
@@ -25,10 +29,12 @@ export default function CategoryLayout({
           </div>
         </div>
         <div className="flex justify-center items-center">
-          <CategoryDropdown CatID={CatID.id} />
+          <CategoryDropdown CatID={CatID?.id || 0} />
         </div>
       </div>
-      {children}
+      <section>{children}</section>
+      <Contact />
+      <Footer />
     </section>
   );
 }

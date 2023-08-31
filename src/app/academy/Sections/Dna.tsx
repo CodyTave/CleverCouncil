@@ -1,3 +1,4 @@
+"use client"
 import { AnimatePresence, motion } from "framer-motion";
 import { logopattern } from "@/assets";
 import { adn } from "../Constants/constants";
@@ -8,7 +9,7 @@ import Image from "next/image";
 function Dna() {
   const [selectedAdn, setAdn] = useState(0);
   return (
-    <div id="adn" className="sm:px-32 xs:px-20 px-5 sm:py-20 py-10">
+    <div id="adn" className="mb-20 sm:px-32 xs:px-20 px-5 sm:py-20 py-10">
       <h1 className="uppercase text-left font-black text-secondary-0 text-4xl">
         Notre ADN
       </h1>
