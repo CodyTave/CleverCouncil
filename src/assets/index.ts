@@ -43,6 +43,7 @@ import ig from "./ig.svg";
 import linked from "./in.svg";
 import phone from "./phone.png";
 import address from "./address.png";
+import duree from "./duree.svg"
 export {
   Logo,
   toggleIc,
@@ -79,5 +80,5 @@ export {
   linked,
   address,
   phone,
-  LogoWhite,
+  LogoWhite,duree
 };

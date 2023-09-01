@@ -23,7 +23,7 @@ export default function CategoryLayout({
       <div className="flex gap-y-10 mlg:flex-row flex-col mlg:justify-between sm:px-32 xs:px-20 px-5 py-10 bg-secondary-0 text-white">
         <div>
           <span className="text-lg">Explorer</span>
-          <h1 className="text-4xl font-bold">Nos Catégories</h1>
+          <h1 className="tn:text-4xl text-xl font-bold">Nos Catégories</h1>
           <div className="mlg:block hidden relative">
             <div className="w-[1.5px] h-16 absolute left-0 top-3 bg-aca-0" />
           </div>

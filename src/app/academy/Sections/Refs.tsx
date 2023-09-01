@@ -65,6 +65,7 @@ function Refs() {
           >
             {refsArray[displayedRefs].map((ref) => (
               <Image
+              placeholder="blur"
                 onClick={() => window.open(ref.url, "_blank")}
                 onMouseEnter={() => {
                   setHover(true);

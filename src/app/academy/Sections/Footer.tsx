@@ -14,7 +14,7 @@ function Footer() {
           </Link>
           {footerLinks.map((item) => (
             <div key={item.id}>
-              <h1 className="text-left uppercase font-semibold opacity-90">
+              <h1 className="text-left tn:text-base text-xs uppercase font-semibold opacity-90">
                 {item.title}
               </h1>
               <ul className="text-left xlg:mt-10 mt-5 grid gap-5 text-ph-0 font-medium">

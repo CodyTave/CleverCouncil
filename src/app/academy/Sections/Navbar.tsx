@@ -4,13 +4,16 @@ import { useState } from "react";
 import { navLinks } from "../Constants/constants";
 import ToggleBurger from "../Components/ToggleBurger";
 import NextLink from "next/link";
-import { Link } from "react-scroll";
 import Image from "next/image";
+import Link from "next/link";
+import { Link as Scroll } from "react-scroll";
 interface props {
-  splitbg: boolean;
+  splitbg?: boolean;
+  scroll?: boolean;
 }
-function Navbar({ splitbg = false }: props) {
+function Navbar({ splitbg = false, scroll = false }: props) {
   const [toggled, setToggle] = useState(false);
+  console.log(window.location.pathname);
   return (
     <>
       <nav
@@ -18,23 +21,40 @@ function Navbar({ splitbg = false }: props) {
           splitbg ? "splitbg" : "bg-secondary-0"
         }  p-10 px-32 justify-items-center items-center gap-20 `}
       >
-        <NextLink href={"/academy"}>
+        <Link href={"/academy"}>
           <Image className="cursor-pointer" alt="Clever Council" src={Logo} />
-        </NextLink>
+        </Link>
         {navLinks.map((nav) => (
-          <Link
-            smooth
-            offset={-50}
-            to={nav.id}
-            key={nav.id}
-            className={`${
-              splitbg ? nav.textClr : "font-semibold text-white"
-            } text-sm transall cursor-pointer text-left hover:opacity-60 `}
-          >
-            {nav.title.split(" ").map((wrd, index) => (
-              <div key={index}>{wrd}</div>
-            ))}
-          </Link>
+          <>
+            {!scroll ? (
+              <Link
+                href={"/academy/#" + nav.id}
+                scroll
+                key={nav.id}
+                className={`${
+                  splitbg ? nav.textClr : "font-semibold text-white"
+                } text-sm transall cursor-pointer text-left hover:opacity-60 `}
+              >
+                {nav.title.split(" ").map((wrd, index) => (
+                  <div key={index}>{wrd}</div>
+                ))}
+              </Link>
+            ) : (
+              <Scroll
+                to={nav.id}
+                smooth
+                offset={-30}
+                key={nav.id}
+                className={`${
+                  splitbg ? nav.textClr : "font-semibold text-white"
+                } text-sm transall cursor-pointer text-left hover:opacity-60 `}
+              >
+                {nav.title.split(" ").map((wrd, index) => (
+                  <div key={index}>{wrd}</div>
+                ))}
+              </Scroll>
+            )}
+          </>
         ))}
       </nav>
 
@@ -56,15 +76,28 @@ function Navbar({ splitbg = false }: props) {
           } `}
         >
           {navLinks.map((nav) => (
-            <Link
-              offset={-50}
-              smooth
-              to={nav.id}
-              key={nav.id}
-              className={`fadeInBlur text-light-0 transall cursor-pointer`}
-            >
-              {nav.title}
-            </Link>
+            <>
+              {!scroll ? (
+                <Link
+                  scroll
+                  href={"/academy/#" + nav.id}
+                  key={nav.id}
+                  className={`fadeInBlur text-light-0 transall cursor-pointer`}
+                >
+                  {nav.title}
+                </Link>
+              ) : (
+                <Scroll
+                  to={nav.id}
+                  smooth
+                  offset={-30}
+                  key={nav.id}
+                  className={`fadeInBlur text-light-0 transall cursor-pointer`}
+                >
+                  {nav.title}
+                </Scroll>
+              )}
+            </>
           ))}
         </div>
       </nav>

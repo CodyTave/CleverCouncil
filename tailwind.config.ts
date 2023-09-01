@@ -48,6 +48,7 @@ const config: Config = {
         g_xxs: "390px",
         g_tn: "175px",
         ///clever landing pages bps
+        tn: "265px",
         xxs: "350px",
         xs: "420px",
         sm: "640px",
@@ -58,6 +59,7 @@ const config: Config = {
         xlg: "1150px",
         mxl: "1370px",
         xl: "1536px",
+        xxl: "1620px",
         xxxl: "1700px",
       },
     },

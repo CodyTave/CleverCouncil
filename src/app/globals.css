@@ -4,6 +4,9 @@
 
 html {
   -webkit-text-size-adjust: none;
+    --scroll-behavior: smooth!important;
+  scroll-behavior: smooth!important;
+
 }
 body {
   zoom: 1;

@@ -81,6 +81,7 @@ function Offre() {
                 key={selectedOffre}
               >
                 <Image
+                placeholder="blur"
                   loading="lazy"
                   className="w-full object-cover "
                   src={

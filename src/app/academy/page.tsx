@@ -13,7 +13,7 @@ import Dna from "./Sections/Dna";
 export default function LandingPage() {
   return (
     <section id="top" className="grid c-academy">
-      <Navbar splitbg />
+      <Navbar scroll splitbg />
       <Hero />
       <Refs />
       <About />
