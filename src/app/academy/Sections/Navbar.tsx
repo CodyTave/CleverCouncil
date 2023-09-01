@@ -13,7 +13,6 @@ interface props {
 }
 function Navbar({ splitbg = false, scroll = false }: props) {
   const [toggled, setToggle] = useState(false);
-  console.log(window.location.pathname);
   return (
     <>
       <nav
