@@ -1,0 +1,29 @@
+"use client";
+import Image, { StaticImageData } from "next/image";
+import { useState } from "react";
+interface props {
+  text: string;
+  color: string;
+  icon: StaticImageData;
+  animate?: string;
+  moreStyles?: string;
+}
+function Button({ text, icon, color, animate, moreStyles = "" }: props) {
+  const [isHovered, setHovered] = useState(false);
+  return (
+    <button
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className={`${color} ${moreStyles} p-5 w-52 flex items-center justify-between gap-2 ml-5 mt-5`}
+    >
+      <span className="font-bold">{text}</span>
+      <Image
+        className={`w-4 transall ${isHovered && animate}`}
+        src={icon}
+        alt=""
+      />
+    </button>
+  );
+}
+
+export default Button;

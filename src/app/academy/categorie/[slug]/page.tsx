@@ -8,7 +8,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   const Categorie = getCategorie(params.slug);
   const Formations = getCategorieFormations(Categorie?.id.toString() || "-1");
   return (
-    <div className="grid lg:grid-cols-2 fadeInBlur">
+    <div className="grid lg:grid-cols-2 fadeInBlur text-left">
       <div className="grid h-fit gap-10 xl:pr-40 xlg:pr-24 lg:pr-14 sm:pr-32 xs:pr-20 pr-5  sm:pl-32 xs:pl-20 pl-5 pt-20 pb-32">
         <h1 className="sm:text-3xl text-xl font-bold text-secondary-0">
           {Categorie?.title}

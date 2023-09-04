@@ -3,13 +3,16 @@ import { categories } from "../Constants/MockData";
 import { formations } from "../Constants/MockFormations";
 
 export function getCategorie(slug: string) {
-  const category = categories.find((item) => item.link === slug);
-  return category;
+  return categories.find((item) => item.link === slug);
 }
 
 export function getCategorieFormations(id: string) {
-  if (id==="-1"){
-    return notFound()
+  if (id === "-1") {
+    return notFound();
   }
   return formations.filter((item) => item.subCategory === id);
+}
+
+export function getFormation(slug: string) {
+  return formations.find((item) => item.link === slug);
 }

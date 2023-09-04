@@ -43,7 +43,12 @@ import ig from "./ig.svg";
 import linked from "./in.svg";
 import phone from "./phone.png";
 import address from "./address.png";
-import duree from "./duree.svg"
+import duree from "./duree.svg";
+import pattern from "./pattern.png";
+import objective from "./objective.png";
+import target from "./target.png";
+import requirs from "./requirements.png";
+import pedags from "./pedags.png";
 export {
   Logo,
   toggleIc,
@@ -80,5 +85,11 @@ export {
   linked,
   address,
   phone,
-  LogoWhite,duree
+  LogoWhite,
+  duree,
+  pattern,
+  objective,
+  pedags,
+  requirs,
+  target,
 };

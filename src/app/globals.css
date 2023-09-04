@@ -4,11 +4,11 @@
 
 html {
   -webkit-text-size-adjust: none;
-    --scroll-behavior: smooth!important;
-  scroll-behavior: smooth!important;
-
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
 }
 body {
+  font-family: "Work Sans", "Poppins", sans-serif;
   zoom: 1;
   margin: 0;
   padding: 0;
@@ -138,6 +138,13 @@ img {
   background: linear-gradient(
     0deg,
     rgb(57, 60, 133) 0%,
+    rgba(9, 9, 121, 0) 100%
+  );
+}
+.gradient-bottom {
+  background: linear-gradient(
+    0deg,
+    rgb(57, 60, 133) 12%,
     rgba(9, 9, 121, 0) 100%
   );
 }

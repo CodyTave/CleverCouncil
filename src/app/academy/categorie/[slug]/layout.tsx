@@ -11,13 +11,8 @@ type props = {
   params: { slug: string };
 };
 export async function generateMetadata({ params }: props): Promise<Metadata> {
-  // read route params
   const id = params.slug;
-  // fetch data
-  const CatID = getCategorie(id) ? getCategorie(id) : notFound();
-
-  // optionally access and extend (rather than replace) parent metadata
-
+  const CatID = getCategorie(id) || notFound();
   return {
     title: CatID?.title,
   };
@@ -34,9 +29,9 @@ export default function CategoryLayout({
     ? getCategorie(params.slug)
     : notFound();
   return (
-    <section>
+    <section id="page-categorie" className="c-academy">
       <Navbar splitbg={false} />
-      <div className="flex gap-y-10 mlg:flex-row flex-col mlg:justify-between sm:px-32 xs:px-20 px-5 py-10 bg-secondary-0 text-white">
+      <div className="flex gap-y-10 mlg:flex-row flex-col mlg:justify-between sm:px-32 xs:px-20 px-5 py-10 bg-secondary-0 text-white text-left">
         <div>
           <span className="text-lg">Explorer</span>
           <h1 className="tn:text-4xl text-xl font-bold">Nos Catégories</h1>

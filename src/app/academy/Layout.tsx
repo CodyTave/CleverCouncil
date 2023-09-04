@@ -14,5 +14,5 @@ export default function AcademyLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <section>{children}</section>;
+  return <section className="c-academy">{children}</section>;
 }

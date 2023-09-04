@@ -1,5 +1,4 @@
 import { StaticImageData } from "next/image";
-import { JsxElement } from "typescript";
 
 interface reference {
   id: string;
@@ -44,4 +43,8 @@ export const LineDecoder = (text: string) => {
       <br />
     </>
   ));
+};
+
+export const listDecoder = (str: string) => {
+  return str.split("\r\n");
 };

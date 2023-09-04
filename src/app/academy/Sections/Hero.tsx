@@ -4,10 +4,10 @@ import { heroContent } from "../Constants/constants";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-scroll";
 import Image from "next/image";
+import Button from "../Components/Button";
 
 function Hero() {
   const [selectedHero, setHero] = useState(heroContent[0]);
-  const [Hovered, Hover] = useState(0);
   const timeout = useRef<NodeJS.Timeout>();
   useEffect(() => {
     timeout.current = setTimeout(() => {
@@ -62,34 +62,20 @@ function Hero() {
             </AnimatePresence>
             <div className="flex mxl:flex-row flex-col">
               <Link smooth to="contact">
-                <button
-                  onMouseEnter={() => Hover(1)}
-                  onMouseLeave={() => Hover(0)}
-                  className="bg-aca-0 p-5 w-52 flex items-center justify-between gap-2 ml-5 mt-5"
-                >
-                  <span className="font-semibold">Contactez Nous</span>
-                  <Image
-                    className={`w-4 transall ${
-                      Hovered === 1 && "-translate-x-2"
-                    }`}
-                    src={arroww}
-                    alt=""
-                  />
-                </button>
+                <Button
+                  animate="translate-x-2"
+                  color="bg-aca-0"
+                  text="Contactez-Nous"
+                  icon={arroww}
+                />
               </Link>
               <Link smooth to="offre">
-                <button
-                  onMouseEnter={() => Hover(2)}
-                  onMouseLeave={() => Hover(0)}
-                  className="bg-secondary-1 p-5 w-52 flex items-center justify-between gap-2 ml-5 mt-5"
-                >
-                  <span className="font-semibold">Nos Offres</span>
-                  <Image
-                    className={`w-4 transall ${Hovered === 2 && "rotate-180"}`}
-                    src={plus}
-                    alt=""
-                  />
-                </button>
+                <Button
+                  animate="rotate-180"
+                  color="bg-secondary-1"
+                  text="Nos Offres"
+                  icon={plus}
+                />
               </Link>
             </div>
           </div>

@@ -1,5 +1,16 @@
-import { ensei, fb, histoire, ig, linked, valeur, vision } from "@/assets";
-
+import {
+  ensei,
+  fb,
+  histoire,
+  ig,
+  linked,
+  objective,
+  pedags,
+  requirs,
+  target,
+  valeur,
+  vision,
+} from "@/assets";
 
 export const navLinks: Array<{
   id: string;
@@ -167,5 +178,28 @@ export const footerLinks = [
       { id: 2, title: "Engineering de formation", link: "" },
       { id: 3, title: "Académie d'entreprise", link: "" },
     ],
+  },
+];
+
+export const FormationDetails = [
+  {
+    id: "objectifs",
+    title: "Objectfs De La Formation",
+    icon: objective,
+  },
+  {
+    id: "target",
+    title: "Public Vise De La Formation",
+    icon: target,
+  },
+  {
+    id: "requirments",
+    title: "Prerequis De La Formation",
+    icon: requirs,
+  },
+  {
+    id: "pedagogiques",
+    title: "Pedagogiques De La Formation",
+    icon: pedags,
   },
 ];
