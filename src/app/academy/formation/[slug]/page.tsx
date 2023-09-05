@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { getFormation } from "../../Services/Services";
 import FormationHero from "./Sections/FormationHero";
 import FormationDetails from "./Sections/FormationDetails";
+import Program from "./Sections/Program";
+import EnrollmentForm from "./Sections/EnrollmentForm";
 
 function page({ params }: { params: { slug: string } }) {
   const { slug } = params;
@@ -10,6 +12,8 @@ function page({ params }: { params: { slug: string } }) {
     <div className=" mb-60">
       <FormationHero Formation={Formation} />
       <FormationDetails Formation={Formation} />
+      <Program program={Formation.description} />
+      <EnrollmentForm />
     </div>
   );
 }

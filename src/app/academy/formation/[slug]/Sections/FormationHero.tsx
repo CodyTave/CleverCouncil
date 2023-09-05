@@ -18,8 +18,8 @@ function FormationHero({
 }: props) {
   return (
     <div className="grid xlg:grid-cols-2 xlg:gap-0 gap-12 xlg:pt-20 sm:px-32 min-[455px]:px-20 px-5 bg-secondary-0 text-white text-left  ">
-      <div className="flex flex-col  gap-3 pb-6 h-fit">
-        <h1 className="xxs:text-5xl tn:text-3xl text-xl font-bold max-w-3xl  py-2">
+      <div className="flex flex-col  gap-3 pb-6 h-fit ">
+        <h1 className="mxl:text-5xl sm:text-4xl tn:text-3xl text-xl font-bold max-w-3xl  py-2">
           {title}
         </h1>
         <div className="flex relative ">
@@ -33,11 +33,11 @@ function FormationHero({
           icon={arroww}
           color="bg-aca-0"
           text="Je m'inscris"
-          moreStyles="uppercase"
+          moreStyles="uppercase ml-5 mt-5"
         />
       </div>
       <div className="flex justify-center mxl:items-end  ">
-        <div className="block relative md:w-[500px]  -mb-14">
+        <div className="block relative md:w-[500px] w-full -mb-14 xlg:mr-0 mr-auto">
           <img
             className="object-cover w-full h-full"
             src={ImageBaseUrl(profilImage)}
@@ -46,7 +46,7 @@ function FormationHero({
           <div className="absolute bottom-8 left-5 z-20">
             <Duration duration={duration} type={durationType} />
           </div>
-          <div className="absolute xlg:w-64 w-40 -top-12 xlg:left-[-25%] -left-20 z-30">
+          <div className="absolute xlg:flex hidden xlg:w-64 w-40 -top-12 xlg:left-[-25%] -left-20 z-30">
             <Image alt="" src={pattern} />
           </div>
           <div className="absolute top-0 gradient-bottom hover:opacity-0  w-full h-full transall  " />

@@ -14,7 +14,7 @@ function Button({ text, icon, color, animate, moreStyles = "" }: props) {
     <button
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={`${color} ${moreStyles} p-5 w-52 flex items-center justify-between gap-2 ml-5 mt-5`}
+      className={`${color} ${moreStyles} p-5 w-52 flex items-center justify-between gap-2 `}
     >
       <span className="font-bold">{text}</span>
       <Image

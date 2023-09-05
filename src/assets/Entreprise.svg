@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0.00 0.00 61.00 61.00">
+<path fill="white" d="
+  M 29.25 0.00
+  L 31.00 0.00
+  L 61.00 15.07
+  L 61.00 61.00
+  L 0.00 61.00
+  L 0.00 15.45
+  C 0.60 14.54 1.34 14.33 2.39 14.73
+  Q 15.30 19.61 28.41 24.49
+  Q 28.98 24.70 28.99 24.08
+  L 29.25 0.00
+  Z
+  M 58.00 17.09
+  A 0.33 0.33 0.0 0 0 57.82 16.80
+  L 32.48 4.10
+  A 0.33 0.33 0.0 0 0 32.00 4.39
+  L 32.00 57.66
+  A 0.33 0.33 0.0 0 0 32.33 57.99
+  L 57.67 58.02
+  A 0.33 0.33 0.0 0 0 58.00 57.69
+  L 58.00 17.09
+  Z
+  M 29.00 28.12
+  A 0.31 0.31 0.0 0 0 28.80 27.83
+  L 3.42 18.30
+  A 0.31 0.31 0.0 0 0 3.00 18.59
+  L 3.00 57.69
+  A 0.31 0.31 0.0 0 0 3.31 58.00
+  L 28.69 58.00
+  A 0.31 0.31 0.0 0 0 29.00 57.69
+  L 29.00 28.12
+  Z"
+/>
+<rect fill="white" x="-2.86" y="-1.50" transform="translate(39.16,21.76) rotate(0.9)" width="5.72" height="3.00" rx="1.40"/>
+<ellipse fill="white" cx="0.00" cy="0.00" transform="translate(50.86,21.76) rotate(-0.6)" rx="3.02" ry="1.62"/>
+<rect fill="white" x="-2.86" y="-1.49" transform="translate(39.18,29.02) rotate(0.6)" width="5.72" height="2.98" rx="1.35"/>
+<rect fill="white" x="-2.88" y="-1.50" transform="translate(50.86,29.02) rotate(-0.5)" width="5.76" height="3.00" rx="1.40"/>
+<rect fill="white" x="-2.84" y="-1.48" transform="translate(39.17,36.27) rotate(0.6)" width="5.68" height="2.96" rx="1.39"/>
+<rect fill="white" x="48.00" y="34.78" width="5.72" height="2.96" rx="1.39"/>
+<rect fill="white" x="-2.85" y="-1.50" transform="translate(39.17,43.52) rotate(1.1)" width="5.70" height="3.00" rx="1.40"/>
+<rect fill="white" x="-2.85" y="-1.48" transform="translate(50.86,43.51) rotate(0.3)" width="5.70" height="2.96" rx="1.39"/>
+<rect fill="white" x="-2.85" y="-1.37" transform="translate(39.17,50.86) rotate(-0.7)" width="5.70" height="2.74" rx="1.10"/>
+<rect fill="white" x="-2.87" y="-1.38" transform="translate(50.85,50.86) rotate(0.1)" width="5.74" height="2.76" rx="1.19"/>
+</svg>

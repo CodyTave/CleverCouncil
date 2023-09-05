@@ -63,6 +63,7 @@ function Hero() {
             <div className="flex mxl:flex-row flex-col">
               <Link smooth to="contact">
                 <Button
+                  moreStyles="ml-5 mt-5"
                   animate="translate-x-2"
                   color="bg-aca-0"
                   text="Contactez-Nous"
@@ -71,6 +72,7 @@ function Hero() {
               </Link>
               <Link smooth to="offre">
                 <Button
+                  moreStyles="ml-5 mt-5"
                   animate="rotate-180"
                   color="bg-secondary-1"
                   text="Nos Offres"

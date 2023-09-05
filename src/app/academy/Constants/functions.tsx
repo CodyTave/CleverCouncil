@@ -48,3 +48,22 @@ export const LineDecoder = (text: string) => {
 export const listDecoder = (str: string) => {
   return str.split("\r\n");
 };
+
+export const programDecoder = (str: string) => {
+  const sections = str.split("</ul>").map((item) => (item = item + "</ul>"));
+  sections.pop(); //remove last empty element
+  return sections.map((sec, index) => {
+    const title = sec
+      .match(/<p>.*?<\/p>/)
+      ?.toString()
+      .replace(/<\/?p>/g, "");
+    const elements = sec.match(/<li>.*?<\/li>/g)?.map((item) => {
+      return item.replace(/<\/?li>/g, "");
+    });
+    return {
+      id: index,
+      title: title,
+      elements: elements,
+    };
+  });
+};

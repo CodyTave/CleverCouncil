@@ -49,6 +49,10 @@ import objective from "./objective.png";
 import target from "./target.png";
 import requirs from "./requirements.png";
 import pedags from "./pedags.png";
+import check from "./Checkmark.svg";
+import desk from "./Desktop.png";
+import particulier from "./Particulier.svg";
+import enterprise from "./Entreprise.svg";
 export {
   Logo,
   toggleIc,
@@ -92,4 +96,8 @@ export {
   pedags,
   requirs,
   target,
+  check,
+  desk,
+  enterprise,
+  particulier,
 };
