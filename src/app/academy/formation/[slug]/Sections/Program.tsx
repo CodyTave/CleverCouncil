@@ -22,8 +22,8 @@ export default function Program({ program }: { program: string }) {
       <div className="grid xlg:grid-cols-2 gap-10 text-left transall">
         <LayoutGroup>
           {Prog.map((item) => (
-            <div className={`grid gap-10  h-fit`}>
-              <div className="grid gap-5 border-b-2 border-aca-0" key={item.id}>
+            <div key={item.id} className={`grid gap-10  h-fit`}>
+              <div className="grid gap-5 border-b-2 border-aca-0">
                 <div
                   onClick={() => handleOpenState(item.id)}
                   className="flex gap-5 items-center justify-between py-5"
