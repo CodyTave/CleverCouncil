@@ -24,12 +24,11 @@ function Navbar({ splitbg = false, scroll = false }: props) {
           <Image className="cursor-pointer" alt="Clever Council" src={Logo} />
         </Link>
         {navLinks.map((nav) => (
-          <>
+          <span key={nav.id}>
             {!scroll ? (
               <Link
                 href={"/academy/#" + nav.id}
                 scroll
-                key={nav.id}
                 className={`${
                   splitbg ? nav.textClr : "font-semibold text-white"
                 } text-sm transall cursor-pointer text-left hover:opacity-60 `}
@@ -43,7 +42,6 @@ function Navbar({ splitbg = false, scroll = false }: props) {
                 to={nav.id}
                 smooth
                 offset={-30}
-                key={nav.id}
                 className={`${
                   splitbg ? nav.textClr : "font-semibold text-white"
                 } text-sm transall cursor-pointer text-left hover:opacity-60 `}
@@ -53,7 +51,7 @@ function Navbar({ splitbg = false, scroll = false }: props) {
                 ))}
               </Scroll>
             )}
-          </>
+          </span>
         ))}
       </nav>
 
@@ -75,12 +73,11 @@ function Navbar({ splitbg = false, scroll = false }: props) {
           } `}
         >
           {navLinks.map((nav) => (
-            <>
+            <span key={nav.id}>
               {!scroll ? (
                 <Link
                   scroll
                   href={"/academy/#" + nav.id}
-                  key={nav.id}
                   className={`fadeInBlur text-light-0 transall cursor-pointer`}
                 >
                   {nav.title}
@@ -90,13 +87,12 @@ function Navbar({ splitbg = false, scroll = false }: props) {
                   to={nav.id}
                   smooth
                   offset={-30}
-                  key={nav.id}
                   className={`fadeInBlur text-light-0 transall cursor-pointer`}
                 >
                   {nav.title}
                 </Scroll>
               )}
-            </>
+            </span>
           ))}
         </div>
       </nav>
