@@ -4,7 +4,7 @@ export default function PlusButton({ plus }: { plus: boolean }) {
   return (
     <svg
       className={`p-2 w-8 h-8 bg-aca-0 rounded-full select-none transall ${
-        !plus && "hover:rotate-180"
+        !plus && "rotate-180"
       } cursor-pointer shrink-0`}
       width="30"
       height="30"

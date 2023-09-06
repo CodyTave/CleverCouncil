@@ -3,7 +3,15 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 
-export default function ListItem({ text, bt }: { text: string; bt: boolean }) {
+export default function ListItem({
+  text,
+  bt,
+  index,
+}: {
+  text: string;
+  bt: boolean;
+  index: number;
+}) {
   const [Hovered, setHovered] = useState(false);
   return (
     <AnimatePresence mode="wait">
@@ -12,6 +20,7 @@ export default function ListItem({ text, bt }: { text: string; bt: boolean }) {
         initial={{ x: -20, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: 20, opacity: 0 }}
+        transition={{ duration: "0.3", delay: index * 0.05 }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         className={`flex gap-10 border-b ${

@@ -141,6 +141,9 @@ img {
     rgba(9, 9, 121, 0) 100%
   );
 }
+.gradient2 {
+  background: linear-gradient(180deg, #5b2c74 0%, rgba(9, 9, 121, 0) 100%);
+}
 .gradient-bottom {
   background: linear-gradient(
     0deg,
@@ -148,8 +151,12 @@ img {
     rgba(9, 9, 121, 0) 100%
   );
 }
-.gradient2 {
-  background: linear-gradient(180deg, #5b2c74 0%, rgba(9, 9, 121, 0) 100%);
+.gradient-bottom2 {
+  background: linear-gradient(
+    0deg,
+    rgb(57, 60, 133) 25%,
+    rgba(9, 9, 121, 0) 100%
+  );
 }
 
 .category-scrollbar::-webkit-scrollbar {

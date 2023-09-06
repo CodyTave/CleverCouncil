@@ -16,3 +16,35 @@ export function getCategorieFormations(id: string) {
 export function getFormation(slug: string) {
   return formations.find((item) => item.link === slug);
 }
+
+interface Formation {
+  id: number;
+  title: string;
+  link: string;
+  description: string;
+  subCategory: string;
+  duration: string;
+  courseObjectifs: string;
+  target: string;
+  prerequisite: string;
+  teachingMethods: string;
+  profilImage: string;
+  durationType: string;
+  shortDescription: string;
+}
+///fake suggestion service
+export function getSuggestions(category: string) {
+  let count = 0;
+  const SuggestionsList: Formation[] = [];
+  while (count < 12) {
+    const suggestion: Formation | undefined = formations.find((item) => {
+      return item.subCategory === "1" && !SuggestionsList.includes(item);
+    });
+    if (suggestion) {
+      SuggestionsList.push(suggestion);
+    }
+    count++;
+  }
+
+  return SuggestionsList;
+}

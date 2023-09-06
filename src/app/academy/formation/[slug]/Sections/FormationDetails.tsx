@@ -62,7 +62,7 @@ function FormationDetails({
       </h1>
       <div className="grid  md:mt-20 mt-10">
         {detailList?.map((item, id) => (
-          <ListItem key={id} text={item} bt={id === 0} />
+          <ListItem key={item} text={item} bt={id === 0} index={id} />
         ))}
       </div>
       <Button

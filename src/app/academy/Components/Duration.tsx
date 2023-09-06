@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function Duration({ duration, type }: { duration: string; type: string }) {
   return (
-    <div className="flex hover:bg-secondary-0 items-center gap-3 bg-secondary-3 py-2  px-3 rounded-full  h-fit w-fit text-white">
+    <div className="flex hover:bg-secondary-0 items-center gap-3 bg-secondary-3 py-2  px-3 rounded-full  h-fit w-fit text-white transall">
       <Image className="w-6" src={duree} alt="" />
       <p className="flex gap-1 text-sm">
         <span className="xlg:flex lg:hidden xxs:flex hidden select-none ">
