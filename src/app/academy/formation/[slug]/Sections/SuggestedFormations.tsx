@@ -23,9 +23,8 @@ function SuggestedFormations({ Category }: { Category: string }) {
       <div className="mt-20 -mb-56">
         <div {...events} ref={ref} className="overflow-auto flex gap-10 pb-16 ">
           {SimilarCourses.map((course, index) => (
-            <Link href={"/academy/formation/" + course.link}>
+            <Link key={index} href={"/academy/formation/" + course.link}>
               <SuggestionCard
-                key={index}
                 Image={course.profilImage}
                 duration={course.duration}
                 durationType={course.durationType}
