@@ -38,7 +38,7 @@ export function getSuggestions(category: string) {
   const SuggestionsList: Formation[] = [];
   while (count < 12) {
     const suggestion: Formation | undefined = formations.find((item) => {
-      return item.subCategory === "1" && !SuggestionsList.includes(item);
+      return item.subCategory === category && !SuggestionsList.includes(item);
     });
     if (suggestion) {
       SuggestionsList.push(suggestion);
