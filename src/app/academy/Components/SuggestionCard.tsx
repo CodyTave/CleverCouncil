@@ -9,7 +9,7 @@ interface props {
 }
 function SuggestionCard({ Image, duration, durationType, title }: props) {
   return (
-    <div className="flex relative w-[350px] h-96 shrink-0">
+    <div className="flex relative xlg:w-[350px]  xlg:h-96 w-64 h-80 shrink-0">
       <img
         className="object-cover w-full h-full "
         src={ImageBaseUrl(Image, 376, 267)}

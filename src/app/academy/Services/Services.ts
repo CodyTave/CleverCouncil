@@ -33,12 +33,16 @@ interface Formation {
   shortDescription: string;
 }
 ///fake suggestion service
-export function getSuggestions(category: string) {
+export function getSuggestions(category: string, CurrentId: number) {
   let count = 0;
   const SuggestionsList: Formation[] = [];
   while (count < 12) {
     const suggestion: Formation | undefined = formations.find((item) => {
-      return item.subCategory === category && !SuggestionsList.includes(item);
+      return (
+        item.subCategory === category &&
+        !SuggestionsList.includes(item) &&
+        item.id !== CurrentId
+      );
     });
     if (suggestion) {
       SuggestionsList.push(suggestion);

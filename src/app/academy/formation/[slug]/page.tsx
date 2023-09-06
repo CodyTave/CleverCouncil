@@ -15,7 +15,10 @@ function page({ params }: { params: { slug: string } }) {
       <FormationDetails Formation={Formation} />
       <Program program={Formation.description} />
       <EnrollmentForm />
-      <SuggestedFormations Category={Formation.subCategory} />
+      <SuggestedFormations
+        FormationId={Formation.id}
+        Category={Formation.subCategory}
+      />
     </div>
   );
 }
