@@ -16,22 +16,18 @@ export const navLinks: Array<{
   id: string;
   title: string;
   textClr: string;
+  link?: string;
 }> = [
   {
     id: "qsn",
     title: "QUI SOMMES-NOUS",
     textClr: "text-white font-semibold",
   },
-  {
-    id: "refs",
-    title: "NOS RÉFERENCES",
-    textClr: "text-white font-semibold ",
-  },
 
   {
     id: "offre",
     title: "OFFRE INTÉGRÉE",
-    textClr: "text-secondary-0 font-bold",
+    textClr: "text-white font-semibold ",
   },
   {
     id: "formations",
@@ -42,6 +38,12 @@ export const navLinks: Array<{
     id: "adn",
     title: "NOTRE ADN",
     textClr: "text-secondary-0 font-bold",
+  },
+  {
+    id: "contact",
+    title: "CONTACTEZ NOUS",
+    textClr: "text-secondary-0 font-bold",
+    link: "/academy/contact",
   },
 ];
 
@@ -154,29 +156,29 @@ export const footerLinks = [
     id: "about",
     title: "Qui sommes-nous",
     subLinks: [
-      { id: 1, title: "A propos", link: "" },
-      { id: 2, title: "Notre ADN", link: "" },
+      { id: 1, title: "A propos", link: "#qsn" },
+      { id: 2, title: "Notre ADN", link: "#adn" },
       { id: 3, title: "Portfolio", link: "" },
-      { id: 4, title: "Contact", link: "" },
+      { id: 4, title: "Contact", link: "/academy/contact" },
     ],
   },
   {
     id: "fastaccess",
     title: "ACCÈS RAPIDE",
     subLinks: [
-      { id: 1, title: "Offre intégrée", link: "" },
-      { id: 2, title: "Formations", link: "" },
+      { id: 1, title: "Offre intégrée", link: "#offre" },
+      { id: 2, title: "Formations", link: "#formation" },
       { id: 3, title: "Integration SI", link: "" },
       { id: 4, title: "Transformation Digitale", link: "" },
     ],
   },
   {
-    id: "offres",
-    title: "Nos Offres",
+    id: "clever",
+    title: "Clever Council",
     subLinks: [
-      { id: 1, title: "Conseil et accompagnement", link: "" },
-      { id: 2, title: "Engineering de formation", link: "" },
-      { id: 3, title: "Académie d'entreprise", link: "" },
+      { id: 1, title: "Academy", link: "/academy" },
+      { id: 2, title: "Technology Services", link: "/technology" },
+      { id: 3, title: "Com & Events", link: "/com-events" },
     ],
   },
 ];

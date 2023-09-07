@@ -35,14 +35,13 @@ function FormationDetails({
         {Details.map((item, index) => (
           <div
             onClick={() => setDetails(index)}
-            className={`${
-              index === 3 || "xlg:border-r"
-            }  hover:opacity-100  transall`}
+            className={`${index === 3 || "xlg:border-r"}    transall`}
             key={item.id}
           >
             <div
-              className={`flex flex-col gap-5 justify-center items-center ${
-                selectedDetail !== index && "opacity-20 cursor-pointer"
+              className={`flex flex-col gap-5 justify-center items-center transall ${
+                selectedDetail !== index &&
+                "opacity-20 hover:opacity-100 cursor-pointer"
               }`}
             >
               <Image

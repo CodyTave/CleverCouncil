@@ -25,9 +25,9 @@ function Navbar({ splitbg = false, scroll = false }: props) {
         </Link>
         {navLinks.map((nav) => (
           <span key={nav.id}>
-            {!scroll ? (
+            {!scroll || nav.link ? (
               <Link
-                href={"/academy/#" + nav.id}
+                href={nav.link ? nav.link : "/academy/#" + nav.id}
                 scroll
                 className={`${
                   splitbg ? nav.textClr : "font-semibold text-white"
@@ -74,10 +74,10 @@ function Navbar({ splitbg = false, scroll = false }: props) {
         >
           {navLinks.map((nav) => (
             <span key={nav.id}>
-              {!scroll ? (
+              {!scroll || nav.link ? (
                 <Link
                   scroll
-                  href={"/academy/#" + nav.id}
+                  href={nav.link ? nav.link : "/academy/#" + nav.id}
                   className={`fadeInBlur text-light-0 transall cursor-pointer`}
                 >
                   {nav.title}

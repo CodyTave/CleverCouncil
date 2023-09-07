@@ -37,7 +37,7 @@ function FormationHero({
         />
       </div>
       <div className="flex justify-center mxl:items-end  ">
-        <div className="block relative md:w-[500px] w-full -mb-14 xlg:mr-0 mr-auto">
+        <div className="block relative md:w-[550px] w-full -mb-14 xlg:mr-0 mr-auto">
           <img
             className="object-cover w-full h-full"
             src={ImageBaseUrl(profilImage)}
@@ -46,7 +46,7 @@ function FormationHero({
           <div className="absolute bottom-8 left-5 z-20">
             <Duration duration={duration} type={durationType} />
           </div>
-          <div className="absolute xlg:flex hidden xlg:w-64 w-40 -top-12 xlg:left-[-25%] -left-20 z-30">
+          <div className="absolute xlg:flex hidden xlg:w-72 w-40 -top-12 xlg:left-[-25%] -left-20 z-30 opacity-30">
             <Image alt="" src={pattern} />
           </div>
           <div className="absolute top-0 gradient-bottom hover:opacity-0  w-full h-full transall  " />
