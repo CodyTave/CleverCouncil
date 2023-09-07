@@ -29,7 +29,7 @@ export default function ContactForm() {
               transition={{ duration: 1, ease: "anticipate" }}
             >
               <h2 className="sm:text-xl text-aca-0 font-semibold">
-                Besoin d'aide ? Nous sommes à votre disposition !
+                Besoin d&apos;aide ? Nous sommes à votre disposition !
               </h2>
               <p className=" sm:text-base text-sm max-w-2xl text-secondary-0 font-medium">
                 Nous vous remercions pour votre intérêt et vous prions de bien
