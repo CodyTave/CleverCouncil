@@ -1,12 +1,15 @@
 "use client";
 
-import { arroww, contact, patter_bg } from "@/assets";
+import { arroww, contact, contact_hv, patter_bg } from "@/assets";
 import Button from "../Components/Button";
 import Input from "../Components/Input";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
 
 export default function ContactForm() {
+  const [Hovered, setHovered] = useState(contact);
+  const [isAnimating, setAnimating] = useState(false);
   return (
     <div className="mlg:mt-28 mb-28 mt-16 sm:px-32 min-[455px]:px-20 px-5">
       <div className="grid gap-8">
@@ -55,15 +58,35 @@ export default function ContactForm() {
             />
           </div>
         </div>
-        <div className="w-full h-full block relative xlg:order-2 order-1">
-          <Image className="w-full h-full object-cover" src={contact} alt="" />
+        <div
+          onMouseEnter={() => {
+            !isAnimating && setHovered(contact_hv);
+          }}
+          onMouseLeave={() => {
+            !isAnimating && setHovered(contact);
+          }}
+          className="w-full h-full block relative xlg:order-2 order-1"
+        >
+          <AnimatePresence mode="popLayout">
+            <motion.img
+              key={Hovered.src}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onAnimationStart={() => setAnimating(true)}
+              onAnimationComplete={() => setAnimating(false)}
+              className="w-full h-full object-cover"
+              src={Hovered.src}
+              alt=""
+            />
+          </AnimatePresence>
+          <div className="absolute w-full h-full top-0 left-0  gradient opacity-70 " />
+          <div className="absolute w-full h-full top-0 left-0  gradient2 opacity-40 z-20" />
           <Image
             className="absolute top-0 right-0 lg:w-60 sm:w-32 xxs:w-20 w-16 z-10 opacity-80"
             src={patter_bg}
             alt=""
           />
-          <div className="absolute w-full h-full top-0 left-0  gradient opacity-70" />
-          <div className="absolute w-full h-full top-0 left-0  gradient2 opacity-40" />
         </div>
       </div>
     </div>

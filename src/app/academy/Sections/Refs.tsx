@@ -20,7 +20,7 @@ function Refs() {
       if (displayedRefs + 1 === refsArray.length) {
         setRef(0);
       }
-    }, 10000);
+    }, 4000);
   }
 
   useEffect(() => {
@@ -65,7 +65,7 @@ function Refs() {
           >
             {refsArray[displayedRefs].map((ref) => (
               <Image
-              placeholder="blur"
+                placeholder="blur"
                 onClick={() => window.open(ref.url, "_blank")}
                 onMouseEnter={() => {
                   setHover(true);

@@ -54,6 +54,7 @@ import desk from "./Desktop.png";
 import particulier from "./Particulier.svg";
 import enterprise from "./Entreprise.svg";
 import contact from "./contactThumb.jpg";
+import contact_hv from "./contact2.png";
 export {
   Logo,
   toggleIc,
@@ -102,4 +103,5 @@ export {
   enterprise,
   particulier,
   contact,
+  contact_hv,
 };

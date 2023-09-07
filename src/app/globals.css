@@ -290,6 +290,21 @@ img {
   }
 }
 
+.dark:-webkit-autofill,
+.dark:-webkit-autofill:hover,
+.dark:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #434594 inset;
+  transition: background-color 1s ease-in-out 0s;
+}
+.light:-webkit-autofill,
+.light:-webkit-autofill:hover,
+.light:-webkit-autofill:focus {
+  -webkit-text-fill-color: #2b2c6b;
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  transition: background-color 1s ease-in-out 0s;
+}
+
 /* clever academy css end  */
 
 /* clever gate css */
