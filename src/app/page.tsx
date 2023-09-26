@@ -6,6 +6,7 @@ import Title from "@/app/Components/Title";
 import { gsap } from "gsap";
 import { Clevers } from "./constants";
 import { useRouter } from "next/navigation";
+import Toggle from "./Components/Toggle";
 
 export default function Home() {
   const [selectedClever, setClever] = useState(Clevers[0]);
@@ -60,8 +61,17 @@ export default function Home() {
     handleDragEnd(e.changedTouches[0].clientX);
   };
 
+  const handleToggle = (arg: number) => {
+    setClever(Clevers[arg]);
+  };
+
   return (
     <main className={`w-screen h-screen ${selectedClever.bg} transall gate`}>
+      <Toggle
+        isTechServices={selectedClever === Clevers[0]}
+        isAnimating={isAnimating}
+        setClever={handleToggle}
+      />
       <AnimatePresence>
         <motion.span
           key={selectedClever.id}
