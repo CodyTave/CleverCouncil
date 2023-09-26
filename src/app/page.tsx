@@ -88,7 +88,7 @@ export default function Home() {
           />
         </motion.span>
       </AnimatePresence>
-      <div className="absolute transall g_md:right-1/2 g_sm:top-20  g_sm:right-28 g_sm:-translate-x-1/2 top-8 right-10 flex gap-3 items-center ">
+      {/* <div className="absolute transall g_md:right-1/2 g_sm:top-20  g_sm:right-28 g_sm:-translate-x-1/2 top-8 right-10 flex gap-3 items-center ">
         {Clevers.map((clev) => (
           <div
             onClick={() => {
@@ -104,7 +104,7 @@ export default function Home() {
             }`}
           ></div>
         ))}
-      </div>
+      </div> */}
       <div className="flex g_xl:gap-14 h-full justify-center items-center  transall g_xs:mt-8 mt-12">
         {Clevers.map((clev) => (
           <Image
