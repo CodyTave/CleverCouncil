@@ -2,46 +2,10 @@ import { aca, com, mfAca, mfCom, mfTech, tech } from "@/assets";
 
 export const Clevers = [
   {
-    index: 0,
-    id: "com",
-    title: "COM & EVENTS",
-    position: "translate-x-full",
-    image: mfCom,
-    logo: com,
-    bg: "bg-com-2",
-    stroke: "stroke-com",
-    textresp: "g_msm:text-com-0",
-    text: "text-com-0",
-    color: "bg-com-0",
-    svg: "#C6A180",
-    links: [
-      {
-        id: "ws",
-        title: "VISITER",
-        url: "/com-events",
-      },
-      {
-        id: "fb",
-        title: "FACEBOOK",
-        url: "https://www.facebook.com/clevercouncil",
-      },
-      {
-        id: "ig",
-        title: "INSTAGRAM",
-        url: "https://www.instagram.com/clevercomandevents/",
-      },
-      {
-        id: "ln",
-        title: "LINKEDIN",
-        url: "https://www.linkedin.com/company/clevercouncil/",
-      },
-    ],
-  },
-  {
     index: 1,
     id: "tech",
     title: "TECH SERVICES",
-    position: "",
+    position: "translate-x-1/2",
     image: mfTech,
     logo: tech,
     bg: "bg-tech-2",
@@ -78,7 +42,7 @@ export const Clevers = [
 
     id: "academy",
     title: "ACADEMY",
-    position: "-translate-x-full ",
+    position: "-translate-x-1/2 ",
     image: mfAca,
     logo: aca,
     bg: "bg-aca-2",

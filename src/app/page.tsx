@@ -8,7 +8,7 @@ import { Clevers } from "./constants";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const [selectedClever, setClever] = useState(Clevers[1]);
+  const [selectedClever, setClever] = useState(Clevers[0]);
   const [dragging, setDragging] = useState<boolean>(false);
   const [dragStartX, setDragStartX] = useState<number>(0);
   const [isAnimating, setAnimating] = useState(false);
