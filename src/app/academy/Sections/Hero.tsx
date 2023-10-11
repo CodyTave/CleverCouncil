@@ -8,15 +8,26 @@ import Button from "../Components/Button";
 
 function Hero() {
   const [selectedHero, setHero] = useState(heroContent[0]);
+  const [isAnimating, setAnimting] = useState(false);
   const timeout = useRef<NodeJS.Timeout>();
   useEffect(() => {
-    timeout.current = setTimeout(() => {
-      if (selectedHero.id === 2) {
-        setHero(heroContent[0]);
-      } else if (selectedHero.id === 1) {
-        setHero(heroContent[1]);
+    setTimeout(() => {
+      if (isAnimating) {
+        setAnimting(false);
       }
-    }, 10000);
+    }, 2800); //security for layout when it gets spammed
+  }, [isAnimating]);
+  useEffect(() => {
+    timeout.current = setTimeout(() => {
+      if (!isAnimating) {
+        if (selectedHero.id === 2) {
+          setHero(heroContent[0]);
+        } else if (selectedHero.id === 1) {
+          setHero(heroContent[1]);
+        }
+      }
+    }, 6000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedHero]);
 
   return (
@@ -31,6 +42,9 @@ function Hero() {
               exit={{ x: -10, opacity: 0 }}
               transition={{ duration: 0.8, ease: "backInOut" }}
               className="xxs:text-6xl text-5xl text-left font-semibold transall"
+              onAnimationStart={() => {
+                setAnimting(true);
+              }}
             >
               {selectedHero.title}
             </motion.h1>
@@ -86,8 +100,10 @@ function Hero() {
               <div
                 key={hero.id}
                 onClick={() => {
-                  clearTimeout(timeout.current);
-                  setHero(hero);
+                  if (!isAnimating) {
+                    clearTimeout(timeout.current);
+                    setHero(hero);
+                  }
                 }}
                 className="py-2"
               >
