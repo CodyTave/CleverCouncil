@@ -42,11 +42,14 @@ export default function Home() {
   const handleDragEnd = (clientX: number) => {
     if (dragging && !isAnimating) {
       const dragDistance = clientX - dragStartX;
-
-      if (dragDistance < -20 && selectedClever.index < Clevers.length - 1) {
-        setClever(Clevers[selectedClever.index + 1]);
-      } else if (dragDistance > 20 && selectedClever.index > 0) {
-        setClever(Clevers[selectedClever.index - 1]);
+      if (dragDistance < -20) {
+        if (selectedClever.index === 1) {
+          setClever(Clevers[1]);
+        }
+      } else if (dragDistance > 20) {
+        if (selectedClever.index === 2) {
+          setClever(Clevers[0]);
+        }
       }
       setDragging(false);
       setDragStartX(0);
@@ -61,6 +64,27 @@ export default function Home() {
     handleDragEnd(e.changedTouches[0].clientX);
   };
 
+  useEffect(() => {
+    const handleKeyboardNavigation = (e: KeyboardEvent) => {
+      if (!isAnimating) {
+        if (e.key === "ArrowLeft") {
+          setClever(Clevers[0]);
+        } else if (e.key === "ArrowRight") {
+          setClever(Clevers[1]);
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyboardNavigation);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyboardNavigation);
+    };
+  }, [isAnimating]);
+
+  useEffect(() => {
+    console.log(isAnimating);
+  }, [isAnimating]);
   const handleToggle = (arg: number) => {
     setClever(Clevers[arg]);
   };
@@ -118,7 +142,7 @@ export default function Home() {
                 router.push(selectedClever.links[0].url);
               }
             }}
-            className={`transall relative w-auto max-w-[60%]
+            className={`transall relative w-auto max-w-[70%]
             g_xs:h-auto h-1/2 object-cover 
             ${selectedClever.id === clev.id && "cursor-pointer"}
             ${selectedClever.position} ${

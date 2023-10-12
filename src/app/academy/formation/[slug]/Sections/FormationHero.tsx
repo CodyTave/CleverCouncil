@@ -1,5 +1,5 @@
-import Button from "@/app/academy/Components/Button";
-import Duration from "@/app/academy/Components/Duration";
+import Button from "@/app/Components/Button";
+import Duration from "@/app/Components/Duration";
 import { ImageBaseUrl } from "@/app/academy/Constants/functions";
 import { arroww, pattern } from "@/assets";
 import Image from "next/image";

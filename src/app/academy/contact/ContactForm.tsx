@@ -1,8 +1,8 @@
 "use client";
 
 import { arroww, contact, contact_hv, patter_bg } from "@/assets";
-import Button from "../Components/Button";
-import Input from "../Components/Input";
+import Button from "../../Components/Button";
+import Input from "../../Components/Input";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";

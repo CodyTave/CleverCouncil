@@ -11,8 +11,8 @@ function Loading() {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill="#009fe3"
-          id="path1aca"
+          fill="#CF4187"
+          id="path1tech"
           d="M61 0H118V47C118 47.5 117.6 48 117 48H95.8C95.4 48 95 47.6 95 47.2V21.3C95 20.6 94.4 20 93.7 20H45.6C45 20 44.9 19.8 45.3 19.3L61 0Z"
         />
         <path

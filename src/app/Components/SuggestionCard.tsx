@@ -1,4 +1,4 @@
-import { ImageBaseUrl } from "../Constants/functions";
+import { ImageBaseUrl } from "../academy/Constants/functions";
 import MiniDuration from "./MiniDuration";
 
 interface props {

@@ -1,6 +1,6 @@
 import { arroww, dropLogo, heroPhotofull, plus } from "@/assets";
 import { useEffect, useRef, useState } from "react";
-import { heroContent } from "../Constants/constants";
+import { heroContent } from "../academy/Constants/constants";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-scroll";
 import Image from "next/image";

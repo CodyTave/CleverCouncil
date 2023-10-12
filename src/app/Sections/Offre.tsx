@@ -1,6 +1,6 @@
 import { useState } from "react";
 import OffreCard from "../Components/OffreCard";
-import { Offres, defaultOffer } from "../Constants/MockData";
+import { Offres, defaultOffer } from "../academy/Constants/MockData";
 import { AnimatePresence, motion } from "framer-motion";
 import { patter_bg } from "@/assets";
 import Image from "next/image";
@@ -81,7 +81,7 @@ function Offre() {
                 key={selectedOffre}
               >
                 <Image
-                placeholder="blur"
+                  placeholder="blur"
                   loading="lazy"
                   className="w-full object-cover "
                   src={

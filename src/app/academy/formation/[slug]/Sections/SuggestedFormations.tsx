@@ -1,5 +1,5 @@
 "use client";
-import SuggestionCard from "@/app/academy/Components/SuggestionCard";
+import SuggestionCard from "@/app/Components/SuggestionCard";
 import { getSuggestions } from "@/app/academy/Services/Services";
 import Link from "next/link";
 import { useState } from "react";

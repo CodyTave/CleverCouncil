@@ -1,4 +1,4 @@
-import Form from "@/app/academy/Components/Form";
+import Form from "@/app/Components/Form";
 import { desk } from "@/assets";
 import Image from "next/image";
 

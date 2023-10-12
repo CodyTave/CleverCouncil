@@ -1,5 +1,5 @@
 "use client";
-import PlusButton from "@/app/academy/Components/PlusButton";
+import PlusButton from "@/app/Components/PlusButton";
 import { programDecoder } from "@/app/academy/Constants/functions";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { useState } from "react";

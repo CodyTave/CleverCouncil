@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import Navbar from "../../Sections/Navbar";
+import Navbar from "../../../Sections/Navbar";
 import { getCategorie } from "../../Services/Services";
 import CategoryDropdown from "./Components/CategoryDropdown";
 import { notFound } from "next/navigation";
-import Contact from "../../Sections/Contact";
-import Footer from "../../Sections/Footer";
+import Contact from "../../../Sections/Contact";
+import Footer from "../../../Sections/Footer";
 
 type props = {
   params: { slug: string };
@@ -30,7 +30,7 @@ export default function CategoryLayout({
     : notFound();
   return (
     <section id="page-categorie" className="c-academy">
-      <Navbar splitbg={false} />
+      <Navbar nav="academy" splitbg={false} />
       <div className="flex gap-y-10 mlg:flex-row flex-col mlg:justify-between sm:px-32 xs:px-20 px-5 py-10 bg-secondary-0 text-white text-left">
         <div>
           <span className="text-lg">Explorer</span>

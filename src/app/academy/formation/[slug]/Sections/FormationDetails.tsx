@@ -3,8 +3,8 @@ import Image from "next/image";
 import { FormationDetails as Details } from "../../../Constants/constants";
 import { useEffect, useState } from "react";
 import { listDecoder } from "@/app/academy/Constants/functions";
-import ListItem from "@/app/academy/Components/ListItem";
-import Button from "@/app/academy/Components/Button";
+import ListItem from "@/app/Components/ListItem";
+import Button from "@/app/Components/Button";
 import { arroww } from "@/assets";
 interface props {
   Formation: {

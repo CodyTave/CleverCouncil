@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { refs } from "../refs";
+import { refs } from "../academy/refs";
 import { useEffect, useRef, useState } from "react";
-import { refsDevider } from "../Constants/functions";
+import { refsDevider } from "../academy/Constants/functions";
 import Image from "next/image";
 function Refs() {
   const { ref, inView } = useInView({

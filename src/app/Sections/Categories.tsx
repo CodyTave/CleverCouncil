@@ -1,7 +1,7 @@
 import Link from "next/link";
 import CategoryCard from "../Components/CategoryCard";
-import { categories } from "../Constants/MockData";
-import { ImageBaseUrl } from "../Constants/functions";
+import { categories } from "../academy/Constants/MockData";
+import { ImageBaseUrl } from "../academy/Constants/functions";
 import { useDraggable } from "react-use-draggable-scroll";
 import { useRef } from "react";
 

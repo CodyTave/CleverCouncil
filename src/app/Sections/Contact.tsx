@@ -1,6 +1,6 @@
 "use client";
 import { address, phone } from "@/assets";
-import { contactInfo } from "../Constants/constants";
+import { contactInfo } from "../academy/Constants/constants";
 import Image from "next/image";
 
 function Contact() {

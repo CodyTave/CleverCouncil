@@ -7,8 +7,10 @@ import mfTech from "./MainFrameTech.png";
 export { aca, com, tech, mfAca, mfCom, mfTech };
 
 ///academy
-import Logo from "./Logo.svg";
+import LogoAca from "./LogoAca.svg";
+import LogoTech from "./LogoTech.svg";
 import LogoWhite from "./LogoWhite.svg";
+import LogoWhiteTech from "./LogoWhiteTech.svg";
 import toggleIc from "./Toggle.svg";
 import plus from "./plus.svg";
 import arroww from "./arroww.svg";
@@ -56,7 +58,9 @@ import enterprise from "./Entreprise.svg";
 import contact from "./contactThumb.jpg";
 import contact_hv from "./contact2.png";
 export {
-  Logo,
+  LogoAca,
+  LogoTech,
+  LogoWhiteTech,
   toggleIc,
   arroww,
   plus,

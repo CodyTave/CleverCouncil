@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { ImageBaseUrl } from "@/app/academy/Constants/functions";
-import Duration from "../../../Components/Duration";
+import Duration from "../../../../Components/Duration";
 
 interface Formation {
   id: number;

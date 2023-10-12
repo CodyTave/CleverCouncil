@@ -1,7 +1,7 @@
-"use client"
+"use client";
 import { AnimatePresence, motion } from "framer-motion";
 import { logopattern } from "@/assets";
-import { adn } from "../Constants/constants";
+import { adn } from "../academy/Constants/constants";
 import { useState } from "react";
 import Pill from "../Components/Pill";
 import Image from "next/image";

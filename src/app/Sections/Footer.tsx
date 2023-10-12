@@ -1,7 +1,7 @@
 "use client";
 import { Link } from "react-scroll";
 import { LogoWhite } from "@/assets";
-import { footerLinks } from "../Constants/constants";
+import { footerLinks } from "../academy/Constants/constants";
 import Image from "next/image";
 
 function Footer() {

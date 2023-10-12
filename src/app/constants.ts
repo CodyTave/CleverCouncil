@@ -1,4 +1,4 @@
-import { aca, com, mfAca, mfCom, mfTech, tech } from "@/assets";
+import { aca, mfAca, mfTech, tech } from "@/assets";
 
 export const Clevers = [
   {
@@ -39,7 +39,6 @@ export const Clevers = [
   },
   {
     index: 2,
-
     id: "academy",
     title: "ACADEMY",
     position: "-translate-x-1/2 ",
