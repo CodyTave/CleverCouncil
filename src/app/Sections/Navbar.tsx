@@ -90,7 +90,7 @@ function Navbar({ splitbg = false, scroll = false, nav }: props) {
           />
         </div>
         <div
-          className={`grid gap-10 font-semibold overflow-hidden transall -mb-8 ${
+          className={`grid gap-10 font-semibold overflow-hidden transall mb-6 ${
             toggled ? "h-[280px] mt-10" : "h-0 mt-0"
           } `}
         >

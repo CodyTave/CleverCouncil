@@ -57,6 +57,7 @@ import particulier from "./Particulier.svg";
 import enterprise from "./Entreprise.svg";
 import contact from "./contactThumb.jpg";
 import contact_hv from "./contact2.png";
+import techHero from "./sampleHeroImage.png";
 export {
   LogoAca,
   LogoTech,
@@ -108,4 +109,5 @@ export {
   particulier,
   contact,
   contact_hv,
+  techHero,
 };

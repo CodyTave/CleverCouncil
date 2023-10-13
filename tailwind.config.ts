@@ -19,7 +19,7 @@ const config: Config = {
           3: "#6163b4",
           4: "#23245d",
         },
-        light: { 0: "#ebebff" },
+        light: { 0: "#ebebff", 1: "#fbf1f5" },
         ph: { 0: "#ababc4", 1: "#e3e3ec", 2: "#f4f4f4", 3: "#636496" },
       },
       backgroundColor: {
@@ -33,7 +33,7 @@ const config: Config = {
           3: "#6163b4",
           4: "#23245d",
         },
-        light: { 0: "#ebebff" },
+        light: { 0: "#ebebff", 1: "#fbf1f5" },
         ph: { 0: "#ababc4", 1: "#e3e3ec", 2: "#f4f4f4", 3: "#636496" },
       },
       screens: {

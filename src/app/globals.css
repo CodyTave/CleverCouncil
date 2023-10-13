@@ -115,7 +115,7 @@ img {
   }
 }
 .splitbg-tech {
-  background: linear-gradient(to right, #fbf1f5 50.01%, #b02d6e 50%);
+  background: linear-gradient(to right, #fbf1f5 50%, #b02d6e 50.01%);
 }
 @media (max-width: 640px) {
   .splitbg-tech {
@@ -123,6 +123,13 @@ img {
   }
 }
 
+.gradientOverlay {
+  background: linear-gradient(
+    180deg,
+    #b02d6e 0%,
+    rgba(255, 104, 179, 0.71) 89.06%
+  );
+}
 .bounce {
   animation-name: bouncing;
   animation-timing-function: ease-in-out;
