@@ -1,10 +1,11 @@
+"use client";
 import { AnimatePresence, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { refs } from "../academy/refs";
 import { useEffect, useRef, useState } from "react";
 import { refsDevider } from "../academy/Constants/functions";
 import Image from "next/image";
-function Refs() {
+function Refs({ clever }: { clever: "academy" | "technology" }) {
   const { ref, inView } = useInView({
     threshold: 0,
   });
@@ -44,7 +45,9 @@ function Refs() {
               animate={{ height: 60 }}
               exit={{ height: -60 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className={` w-[1.5px]  transall bg-aca-0`}
+              className={` w-[1.5px]  transall ${
+                clever === "technology" ? "bg-tech-0" : "bg-aca-0"
+              }`}
             />
           )}
         </AnimatePresence>

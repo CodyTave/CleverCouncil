@@ -15,8 +15,8 @@ export default function LandingPage() {
     <section id="top" className="grid c-academy">
       <Navbar nav="academy" scroll splitbg />
       <Hero />
-      <Refs />
-      <About />
+      <Refs clever="academy" />
+      <About clever="academy" />
       <Offre />
       <Categories />
       <Dna />

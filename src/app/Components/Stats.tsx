@@ -5,7 +5,7 @@ interface Stat {
   number: number;
   title: string;
 }
-function Stats() {
+function Stats({ clever }: { clever: "academy" | "technology" }) {
   const stats: Stat[] = [
     {
       id: "1",
@@ -36,7 +36,7 @@ function Stats() {
   return (
     <div className="grid sm:grid-cols-2 mxl:px-10 xl:px-20 lg:px-0 px-5 sm:py-10 ">
       {stats.map((stat) => (
-        <StatCard key={stat.id} StatDetails={stat} />
+        <StatCard clever={clever} key={stat.id} StatDetails={stat} />
       ))}
     </div>
   );
