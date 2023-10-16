@@ -17,11 +17,11 @@ export default function LandingPage() {
       <Hero />
       <Refs clever="academy" />
       <About clever="academy" />
-      <Offre />
+      <Offre clever="academy" />
       <Categories />
-      <Dna />
-      <Contact />
-      <Footer />
+      <Dna clever="academy" />
+      <Contact clever="academy" />
+      <Footer clever="academy" />
     </section>
   );
 }

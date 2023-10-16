@@ -40,7 +40,9 @@ function Categories() {
                   />
                 </Link>
               ))
-            : [1, 2, 3, 4, 5, 6, 7, 8].map(() => <CategoryCard loading />)}
+            : [1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                <CategoryCard key={i} loading />
+              ))}
         </div>
       </div>
     </div>
