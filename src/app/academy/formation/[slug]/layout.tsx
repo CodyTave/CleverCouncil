@@ -22,8 +22,8 @@ export default function FormationLayout({ children }: { children: ReactNode }) {
     <section id="page-formation" className="c-academy">
       <Navbar nav="academy" />
       {children}
-      <Contact />
-      <Footer />
+      <Contact clever="academy" />
+      <Footer clever="academy" />
     </section>
   );
 }
