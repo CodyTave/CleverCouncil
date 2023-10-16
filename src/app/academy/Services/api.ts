@@ -11,3 +11,29 @@ const api: AxiosInstance = axios.create({
   },
 });
 export default api;
+
+export async function getCategories() {
+  try {
+    const resp = await api.get("/categories");
+    return resp.data;
+  } catch (err) {
+    throw err;
+  }
+}
+
+export async function getCategoryBySlug(slug: string) {
+  try {
+    const resp = await api.get(`/categorie/details/${slug}`);
+    return resp.data;
+  } catch (err) {
+    throw err;
+  }
+}
+export async function getCategoryFormations(id: string) {
+  try {
+    const resp = await api.get(`/categorie/${id}`);
+    return resp.data;
+  } catch (err) {
+    throw err;
+  }
+}

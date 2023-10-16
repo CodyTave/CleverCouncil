@@ -1,20 +1,23 @@
 import Link from "next/link";
 import CategoryCard from "../Components/CategoryCard";
-import { categories } from "../academy/Constants/MockData";
 import { ImageBaseUrl } from "../academy/Constants/functions";
 import { useDraggable } from "react-use-draggable-scroll";
-import { useRef, useState } from "react";
-import api from "../academy/Services/api";
+import { useRef, useState, useEffect } from "react";
+import { getCategories } from "../academy/Services/api";
 function Categories() {
   const ref =
     useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;
   const { events } = useDraggable(ref);
-  const [categoriess, setCategories] = useState([]);
-  const [isLoaded, setLoaded] = useState(true);
+  const [categories, setCategories] = useState<{ [key: string]: string }[]>([]);
+  const [isLoaded, setLoaded] = useState(false);
+  useEffect(() => {
+    fetchCategoreis();
+  }, []);
+
   async function fetchCategoreis() {
     try {
-      const resp = await api.get("/categories");
-      setCategories(resp.data);
+      const resp = await getCategories();
+      setCategories(resp);
       setLoaded(true);
     } catch (err) {
       throw err;

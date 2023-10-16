@@ -8,7 +8,7 @@ function About({ clever }: { clever: "academy" | "technology" }) {
     <div id="qsn" className="block relative sm:my-16 fadeInBlur transall">
       <Image
         onContextMenu={(e) => e.preventDefault()}
-        className="absolute hidden hover:ml-10 lg:block mxl:top-0 top-12 w-[33%] xl:-left-52 -left-24 -z-20 transall "
+        className="absolute hidden hover:ml-10 lg:block mxl:top-10 top-24 w-[33%] xl:-left-52 -left-24 -z-20 transall "
         src={threeDlogo}
         alt=""
       />

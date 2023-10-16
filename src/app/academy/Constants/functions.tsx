@@ -68,7 +68,7 @@ export const programDecoder = (str: string) => {
   });
 };
 
-export function parseString(
+export function parseDescription(
   inputString: string
 ): { id: number; title: string; content: string }[] {
   const regex =

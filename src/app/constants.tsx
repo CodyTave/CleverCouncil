@@ -41,6 +41,39 @@ export const aboutData = {
     </>
   ),
 };
+interface Stat {
+  id: string;
+  border: string;
+  number: number;
+  title: string;
+}
+
+export const stats: Stat[] = [
+  {
+    id: "1",
+    title: "Programes Certifiés",
+    number: 60,
+    border: "border-b sm:border-r  ",
+  },
+  {
+    id: "2",
+    title: "Programes Certifiés",
+    number: 200,
+    border: "border-b  ",
+  },
+  {
+    id: "3",
+    title: "Programes Certifiés",
+    number: 110,
+    border: "sm:border-r sm:border-b-0 border-b ",
+  },
+  {
+    id: "4",
+    title: "Programes Certifiés",
+    number: 24,
+    border: "",
+  },
+];
 
 export const OffersIntro = {
   academy: `Nous proposons une offre intégrée pour adresser de manière cohérente et globale les besoinsen formation des entreprises`,

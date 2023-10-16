@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { categories } from "../Constants/MockData";
 import { formations } from "../Constants/MockFormations";
+import api from "./api";
 
 export function getCategorie(slug: string) {
   return categories.find((item) => item.link === slug);
