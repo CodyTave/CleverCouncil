@@ -8,8 +8,8 @@ function ContactPage() {
     <div>
       <Navbar nav="academy" />
       <ContactForm />
-      <Contact />
-      <Footer />
+      <Contact clever="academy" />
+      <Footer clever="academy" />
     </div>
   );
 }
