@@ -1,10 +1,10 @@
 "use client";
 import { Link } from "react-scroll";
 import { LogoWhite } from "@/assets";
-import { footerLinks } from "../academy/Constants/constants";
+import { footerLinks } from "../constants";
 import Image from "next/image";
 
-function Footer() {
+function Footer({ clever }: { clever: "academy" | "technology" }) {
   return (
     <footer>
       <div className="bg-secondary-0 text-white py-16 sm:px-32 xs:px-20 px-5">
@@ -20,7 +20,11 @@ function Footer() {
               <ul className="text-left xlg:mt-10 mt-5 grid gap-5 text-ph-0 font-medium">
                 {item.subLinks.map((link) => (
                   <li key={link.id} className="flex gap-2 items-center">
-                    <span className="w-1 h-1 block rounded-full bg-aca-0"></span>
+                    <span
+                      className={`w-1 h-1 block rounded-full ${
+                        clever === "technology" ? "bg-tech-0" : "bg-aca-0"
+                      }`}
+                    ></span>
                     <a
                       className="hover:underline hover:text-white transall"
                       href={link.link}

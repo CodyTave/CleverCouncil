@@ -115,7 +115,7 @@ img {
   }
 }
 .splitbg-tech {
-  background: linear-gradient(to right, #fbf1f5 50%, #b02d6e 50.01%);
+  background: linear-gradient(to right, #fbf1f5 50%, #b02d6e 50.03%);
 }
 @media (max-width: 640px) {
   .splitbg-tech {

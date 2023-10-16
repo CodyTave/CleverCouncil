@@ -1,13 +1,19 @@
+"use client";
 import { useState } from "react";
 import OffreCard from "../Components/OffreCard";
-import { Offres, defaultOffer } from "../constants";
+import { OffersIntro, academyOffers, techOffers } from "../constants";
 import { AnimatePresence, motion } from "framer-motion";
 import { patter_bg } from "@/assets";
 import Image from "next/image";
 
-function Offre() {
+function Offre({ clever }: { clever: "academy" | "technology" }) {
+  const [Offer] = useState(
+    clever === "technology" ? techOffers : academyOffers
+  );
   const [selectedOffre, setOffre] = useState(-1);
   const [isAnimating, setAnimating] = useState(false);
+  const intro =
+    clever === "technology" ? OffersIntro.tech : OffersIntro.academy;
   function handleOffres(id: number) {
     if (!isAnimating) {
       if (selectedOffre === id) {
@@ -30,21 +36,21 @@ function Offre() {
               key={selectedOffre}
             >
               {selectedOffre === -1
-                ? defaultOffer.title
-                : Offres[selectedOffre].title}
+                ? Offer.defaultOffer.title
+                : Offer.Offres[selectedOffre].title}
             </motion.h1>
           </AnimatePresence>
           <h1
             className={`uppercase ${
               selectedOffre === -1
-                ? defaultOffer.primarybg
-                : Offres[selectedOffre].primarybg
+                ? Offer.defaultOffer.primarybg
+                : Offer.Offres[selectedOffre].primarybg
             } px-2 py-1 text-light-0 w-fit h-fit hover:shadow-neo transall `}
           >
             Publique/privée
           </h1>
           <div className="flex mxl:hidden gap-5">
-            {Offres.map((offre, index) => (
+            {Offer.Offres.map((offre, index) => (
               <div
                 key={offre.id}
                 onClick={() => handleOffres(index)}
@@ -59,19 +65,16 @@ function Offre() {
             ))}
           </div>
           <div className="text-ph-3 min-h-[200px]  ">
-            <div className="font-bold">
-              Nous proposons une offre intégrée pour adresser de manière
-              cohérente et globale les besoinsen formation des entreprises
-            </div>
+            <div className="font-bold">{intro}</div>
             <br />
             {selectedOffre === -1
-              ? defaultOffer.text
-              : Offres[selectedOffre].text}
+              ? Offer.defaultOffer.text
+              : Offer.Offres[selectedOffre].text}
           </div>
           <div>
             <AnimatePresence mode="wait">
               <motion.div
-                className="relative mxl:mt-16 xxs:w-full  w-60 mx-auto "
+                className="relative mxl:mt-16 xxs:w-full  w-60 mx-auto -mb-20 "
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -30 }}
@@ -86,8 +89,8 @@ function Offre() {
                   className="w-full object-cover "
                   src={
                     selectedOffre === -1
-                      ? defaultOffer.photo
-                      : Offres[selectedOffre].photo
+                      ? Offer.defaultOffer.photo
+                      : Offer.Offres[selectedOffre].photo
                   }
                   alt=""
                 />
@@ -97,7 +100,7 @@ function Offre() {
           </div>
         </div>
         <div className="mxl:grid hidden grid-cols-2 gap-10 h-fit w-fit ">
-          {Offres.map((offre, index) => (
+          {Offer.Offres.map((offre, index) => (
             <div
               className={`transall border  ${
                 selectedOffre === index && " border-ph-0"

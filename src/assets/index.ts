@@ -58,6 +58,13 @@ import enterprise from "./Entreprise.svg";
 import contact from "./contactThumb.jpg";
 import contact_hv from "./contact2.png";
 import techHero from "./sampleHeroImage.png";
+import transfo from "./transfoDigital.svg";
+import conseil from "./Accompagn.svg";
+import csecurity from "./security.svg";
+import transfoPhoto from "./digTransfo.jpg";
+import conseilPhoto from "./council.jpg";
+import csecurityPhoto from "./cyber.jpg";
+import techdefaultOffer from "./techDefault.jpg";
 export {
   LogoAca,
   LogoTech,
@@ -110,4 +117,11 @@ export {
   contact,
   contact_hv,
   techHero,
+  conseil,
+  csecurity,
+  transfo,
+  conseilPhoto,
+  csecurityPhoto,
+  transfoPhoto,
+  techdefaultOffer,
 };

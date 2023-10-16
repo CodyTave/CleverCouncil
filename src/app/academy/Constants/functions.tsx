@@ -67,3 +67,20 @@ export const programDecoder = (str: string) => {
     };
   });
 };
+
+export function parseString(
+  inputString: string
+): { id: number; title: string; content: string }[] {
+  const regex =
+    /<div>\s*<p><b>(.*?)<\/b><\/p>\s*<span>(.*?)<\/span>\s*<\/div>/g;
+  //@ts-ignore
+  const matches = [...inputString.matchAll(regex)];
+
+  const result = matches.map((match, id) => {
+    const title = match[1].trim();
+    const content = match[2].trim();
+
+    return { id, title, content };
+  });
+  return result;
+}

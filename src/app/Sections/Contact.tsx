@@ -1,9 +1,9 @@
 "use client";
 import { address, phone } from "@/assets";
-import { contactInfo } from "../academy/Constants/constants";
+import { contactInfo } from "../constants";
 import Image from "next/image";
 
-function Contact() {
+function Contact({ clever }: { clever: "academy" | "technology" }) {
   return (
     <div id="contact" className=" h-[460px] relative">
       <iframe
@@ -15,7 +15,11 @@ function Contact() {
       ></iframe>
       <div className="absolute grid gap-6 -top-16 md:left-32 md:mx-0  sm:mx-32 sm:w-fit w-full  mx-0 xs:p-10 p-5  sm:py-20 py-12 bg-secondary-0 text-left">
         <div className="block relative">
-          <div className="absolute  h-32  w-[2px] hover:h-10 bottom-0 left-0 bg-aca-0 transall " />
+          <div
+            className={`absolute  h-32  w-[2px] hover:h-10 bottom-0 left-0 ${
+              clever === "technology" ? "bg-tech-0" : "bg-aca-0"
+            } transall`}
+          />
           <h1 className="uppercase font-black md:text-3xl xs:text-2xl tn:text-xl text-sm text-secondary-3 pl-8  ">
             CONTACTEZ-NOUS
           </h1>

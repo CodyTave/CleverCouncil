@@ -2,20 +2,8 @@
 import { threeDlogo } from "@/assets";
 import Stats from "../Components/Stats";
 import Image from "next/image";
+import { aboutData } from "../constants";
 function About({ clever }: { clever: "academy" | "technology" }) {
-  const aboutData = {
-    preTitle: "découvrez clever",
-    Title: "Qui sommes-nous",
-    parag: (
-      <>
-        Institut international de conseil et de renforcement de capacités, nous
-        disposons d&apos;une équipe solide aux compétences avérées, et
-        d&apos;une présence internationale.
-        <br /> Nous sommes fiers de forger avec nos partenaires leur force de
-        frappe business
-      </>
-    ),
-  };
   return (
     <div id="qsn" className="block relative sm:my-16 fadeInBlur transall">
       <Image

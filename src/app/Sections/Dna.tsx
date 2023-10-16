@@ -1,12 +1,12 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
 import { logopattern } from "@/assets";
-import { adn } from "../academy/Constants/constants";
+import { adn } from "../constants";
 import { useState } from "react";
 import Pill from "../Components/Pill";
 import Image from "next/image";
 
-function Dna() {
+function Dna({ clever }: { clever: "academy" | "technology" }) {
   const [selectedAdn, setAdn] = useState(0);
   return (
     <div id="adn" className="mb-20 sm:px-32 xs:px-20 px-5 sm:py-20 py-10">
@@ -79,7 +79,9 @@ function Dna() {
             exit={{ height: -80 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
             key={selectedAdn}
-            className="absolute sm:h-20 h-10 w-[2px] -bottom-5 hover:h-10 right-16 sm:right-32 bg-aca-0 transall "
+            className={`absolute sm:h-20 h-10 w-[2px] -bottom-5 hover:h-10 right-16 sm:right-32 ${
+              clever === "technology" ? "bg-tech-0" : "bg-aca-0"
+            } transall `}
           />
         </AnimatePresence>
         <AnimatePresence>
@@ -89,7 +91,9 @@ function Dna() {
             exit={{ height: -80 }}
             transition={{ duration: 0.8, ease: "backInOut" }}
             key={selectedAdn}
-            className="absolute sm:h-20 h-10  w-[2px] bottom-0 hover:h-10 right-10 sm:right-28 bg-aca-0 transall"
+            className={`absolute sm:h-20 h-10  w-[2px] bottom-0 hover:h-10 right-10 sm:right-28 ${
+              clever === "technology" ? "bg-tech-0" : "bg-aca-0"
+            } transall`}
           />
         </AnimatePresence>
       </div>

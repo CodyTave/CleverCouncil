@@ -7,6 +7,7 @@ export default function HeroIT() {
   const [titleHovered, setHovered] = useState(false);
   const [autoPlayPrevented, setAPerror] = useState(false);
   const [selectedTitle, setTitle] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
   const vid = useRef<HTMLVideoElement | null>(null);
   const heroData = {
     title: ["CONSULTING", "ACCOMPAGNEMENT"],
@@ -14,14 +15,32 @@ export default function HeroIT() {
     videoSections: ["Ascent", "rêver", "build", "maintenir", "réussir"],
   };
   useEffect(() => {
-    setTimeout(() => {
-      if (selectedTitle === 4) {
-        setTitle(0);
-        return;
-      }
-      setTitle(selectedTitle + 1);
-    }, 10000);
-  }, [selectedTitle]);
+    const video = vid.current;
+    if (video) {
+      video.addEventListener("timeupdate", () => {
+        setCurrentTime(video.currentTime);
+      });
+      return () => {
+        video.removeEventListener("timeupdate", () => {
+          setCurrentTime(video.currentTime);
+        });
+      };
+    }
+  }, []);
+
+  useEffect(() => {
+    if (currentTime >= 10 && currentTime < 20) {
+      setTitle(1);
+    } else if (currentTime >= 20 && currentTime < 30) {
+      setTitle(2);
+    } else if (currentTime >= 30 && currentTime < 40) {
+      setTitle(3);
+    } else if (currentTime >= 40 && currentTime < 50) {
+      setTitle(4);
+    } else if (currentTime < 10) {
+      setTitle(0);
+    }
+  }, [currentTime]);
 
   useEffect(() => {
     if (vid.current) {
@@ -126,11 +145,20 @@ export default function HeroIT() {
               type="video/mp4"
             />
           </video>
-          <AnimatePresence mode="wait">
-            <motion.h1 className="absolute z-[5] top-[40%] -translate-y-1/2 right-[50%] translate-x-1/2 text-5xl font-black uppercase text-light-1 fadeInBlur">
-              {heroData.videoSections[selectedTitle]}
-            </motion.h1>
-          </AnimatePresence>
+          <div className="overflow-hidden absolute z-[5] top-[40%] -translate-y-1/2 right-[50%] translate-x-1/2">
+            <AnimatePresence mode="wait">
+              <motion.span
+                initial={{ y: -50 }}
+                animate={{ y: 0 }}
+                exit={{ y: 50 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                key={selectedTitle}
+                className="flex text-5xl font-black uppercase text-light-1 "
+              >
+                {heroData.videoSections[selectedTitle]}
+              </motion.span>
+            </AnimatePresence>
+          </div>
           {autoPlayPrevented && (
             <button
               onClick={handleManualPlay}
