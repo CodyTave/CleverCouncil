@@ -44,8 +44,8 @@ export default function CategoryLayout({
         </div>
       </div>
       <section>{children}</section>
-      <Contact />
-      <Footer />
+      <Contact clever="academy" />
+      <Footer clever="academy" />
     </section>
   );
 }
