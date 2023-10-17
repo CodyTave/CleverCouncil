@@ -14,7 +14,7 @@ export default function NotFound() {
         className="bg-tech-0 hover:bg-tech-1 p-4 px-10 font-black text-light-0 uppercase transall"
         href="/technology"
       >
-        Page d'accueil
+        {"Page d'accueil"}
       </Link>
     </div>
   );
