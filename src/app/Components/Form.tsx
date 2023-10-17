@@ -6,12 +6,43 @@ import Input from "./Input";
 import Button from "./Button";
 import { AnimatePresence, motion } from "framer-motion";
 
-function Form() {
+function Form({
+  Category,
+  Formation,
+}: {
+  Category: string;
+  Formation: string;
+}) {
   const userTypes = [
     { id: "ind", title: "Particulier", icon: particulier },
     { id: "ent", title: "Entreprise", icon: enterprise },
   ];
   const [userType, setType] = useState("ind");
+  const [form, setForm] = useState({
+    typeClient: "",
+    name: "",
+    email: "",
+    phone: "",
+    city: "",
+    formation: Formation,
+    category: Category,
+    company: "",
+  });
+  const [validation, setValidation] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    city: "",
+    company: "",
+  });
+  const handleChange = (event: any) => {
+    const { name, value } = event.target;
+    setForm((prevForm) => ({
+      ...prevForm,
+      [name]: value,
+    }));
+  };
+
   return (
     <div className="flex flex-col gap-5">
       <div className="grid md:grid-cols-2 xs:gap-0 gap-5 md:mt-0 mt-5">
@@ -43,10 +74,15 @@ function Form() {
       </div>
       <div className="grid gap-5">
         <div className="grid sm:grid-cols-2 gap-3">
-          <Input ph="Nom" />
-          <Input ph="Prenom" />
+          <Input onChange={handleChange} name="firstName" ph="Nom" />
+          <Input onChange={handleChange} name="lastName" ph="Prenom" />
         </div>
-        <Input type="email" ph="Adresse E-mail" />
+        <Input
+          onChange={handleChange}
+          name="email"
+          type="email"
+          ph="Adresse E-mail"
+        />
         <AnimatePresence>
           {userType === "ent" && (
             <motion.div
@@ -55,7 +91,11 @@ function Form() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
             >
-              <Input ph="Votre Entreprise" />
+              <Input
+                onChange={handleChange}
+                name="company"
+                ph="Votre Entreprise"
+              />
             </motion.div>
           )}
         </AnimatePresence>
@@ -66,8 +106,8 @@ function Form() {
           exit={{ opacity: 0, x: -100 }}
           className="grid sm:grid-cols-2 gap-3"
         >
-          <Input type="tel" ph="Tel." />
-          <Input ph="Ville" />
+          <Input onChange={handleChange} name="phone" type="tel" ph="Tel." />
+          <Input onChange={handleChange} name="city" ph="Ville" />
         </motion.div>
         <Button
           animate="translate-x-2"

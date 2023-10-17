@@ -1,4 +1,4 @@
-import { getCategoryBySlug } from "@/app/academy/Services/api";
+import { getCategoryBySlug } from "@/app/Services/api";
 import { notFound } from "next/navigation";
 import CategoryDropdown from "./CategoryDropdown";
 

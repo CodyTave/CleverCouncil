@@ -1,12 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 
 interface props {
+  name?: string;
   ph: string;
   type?: string;
   theme?: "light" | "dark";
+  validation?: string;
+  isSubmitted?: boolean;
+  onChange: (
+    value: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
 }
 
-function Input({ ph, type, theme = "dark" }: props) {
+function Input({
+  ph,
+  name,
+  type,
+  theme = "dark",
+  onChange,
+  validation,
+  isSubmitted,
+}: props) {
   const [InputValue, setValue] = useState("");
   const dark = {
     id: "dark",
@@ -36,50 +50,67 @@ function Input({ ph, type, theme = "dark" }: props) {
       setTheme(dark);
     }
   }, []);
-
+  function handlChange(
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    setValue(event.target.value);
+    onChange(event);
+  }
+  useEffect(() => {
+    if (isSubmitted) {
+      setValue("");
+    }
+  }, [isSubmitted]);
   return (
-    <div
-      className={`text-white ${themeSetting?.border} ${
-        InputValue === "" ? themeSetting?.bg : themeSetting?.focusBg
-      } px-4 py-2 ${type !== "textarea" && "h-20"} overflow-hidden transall  `}
-    >
-      <label
-        className={`text-[#7071b3] font-semibold transall ${
-          InputValue === "" ? "-translate-y-10 " : "translate-y-0"
-        } flex transall`}
+    <div>
+      <div
+        className={`text-white ${
+          validation === "" ? themeSetting?.border : "border-red-300"
+        } ${
+          InputValue === "" ? themeSetting?.bg : themeSetting?.focusBg
+        } px-4 py-2 ${
+          type !== "textarea" && "h-20"
+        } overflow-hidden transall  `}
       >
-        {ph}
-      </label>
-      {type === "textarea" ? (
-        <textarea
-          onChange={(e) => {
-            setValue(e.target.value);
-          }}
-          value={InputValue}
-          placeholder={ph}
-          className={`py-2 z-50 outline-none w-full font-bold bg-transparent ${
-            themeSetting?.ph
-          }
+        <label
+          className={`text-[#7071b3] font-semibold transall ${
+            InputValue === "" ? "-translate-y-10 " : "translate-y-0"
+          } flex transall`}
+        >
+          {ph}
+        </label>
+        {type === "textarea" ? (
+          <textarea
+            name={name}
+            onChange={handlChange}
+            value={InputValue}
+            placeholder={ph}
+            className={`py-2 z-50 outline-none w-full font-bold bg-transparent ${
+              themeSetting?.ph
+            }
           ${type === "textarea" && "h-52 min-h-[60px] max-h-[300px]"}
           placeholder:font-semibold ${
             InputValue === "" ? "translate-y-[-14px]" : "translate-y-0"
           }  transall`}
-        />
-      ) : (
-        <input
-          onChange={(e) => {
-            setValue(e.target.value);
-          }}
-          type={type}
-          value={InputValue}
-          placeholder={ph}
-          className={`py-2 z-50 outline-none w-full font-bold bg-transparent ${
-            themeSetting?.id
-          }
-          ${themeSetting?.ph} placeholder:font-semibold ${
-            InputValue === "" ? "translate-y-[-14px]" : "translate-y-0"
-          }  transall`}
-        />
+          />
+        ) : (
+          <input
+            name={name}
+            onChange={handlChange}
+            type={type}
+            value={InputValue}
+            placeholder={ph}
+            className={`py-2 z-50 outline-none w-full font-bold bg-transparent ${
+              themeSetting?.id
+            }
+        ${themeSetting?.ph} placeholder:font-semibold ${
+              InputValue === "" ? "translate-y-[-14px]" : "translate-y-0"
+            }  transall`}
+          />
+        )}
+      </div>
+      {validation !== "" && (
+        <span className="text-xs text-red-600 fadeInBlur">{validation}</span>
       )}
     </div>
   );

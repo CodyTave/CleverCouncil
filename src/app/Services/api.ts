@@ -17,7 +17,7 @@ export async function getCategories() {
     const resp = await api.get("/categories");
     return resp.data;
   } catch (err) {
-    throw err;
+    console.error(err);
   }
 }
 
@@ -25,15 +25,41 @@ export async function getCategoryBySlug(slug: string) {
   try {
     const resp = await api.get(`/categorie/details/${slug}`);
     return resp.data;
-  } catch (err) {
-    throw err;
+  } catch (err: any) {
+    console.error(err);
   }
 }
-export async function getCategoryFormations(id: string) {
+export async function getCategoryByID(id: string | number) {
+  try {
+    const resp = await api.get(`/categorie/detail/${id}`);
+    return resp.data;
+  } catch (err: any) {
+    console.error(err);
+  }
+}
+export async function getCategoryFormations(id: string | number) {
   try {
     const resp = await api.get(`/categorie/${id}`);
     return resp.data;
-  } catch (err) {
-    throw err;
+  } catch (err: any) {
+    console.error(err);
+  }
+}
+
+export async function getFormationBySlug(slug: string) {
+  try {
+    const resp = await api.get(`/formation/${slug}`);
+    return resp.data;
+  } catch (err: any) {
+    console.error(err);
+  }
+}
+
+export async function postContact(form: { [key: string]: string }) {
+  try {
+    const resp = await api.post(`/contact`, form);
+    return resp.data;
+  } catch (err: any) {
+    console.error(err);
   }
 }

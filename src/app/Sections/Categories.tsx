@@ -3,7 +3,7 @@ import CategoryCard from "../Components/CategoryCard";
 import { ImageBaseUrl } from "../academy/Constants/functions";
 import { useDraggable } from "react-use-draggable-scroll";
 import { useRef, useState, useEffect } from "react";
-import { getCategories } from "../academy/Services/api";
+import { getCategories } from "../Services/api";
 function Categories() {
   const ref =
     useRef<HTMLDivElement>() as React.MutableRefObject<HTMLInputElement>;

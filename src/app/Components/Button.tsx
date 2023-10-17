@@ -7,11 +7,20 @@ interface props {
   icon: StaticImageData;
   animate?: string;
   moreStyles?: string;
+  onClick?: () => void;
 }
-function Button({ text, icon, color, animate, moreStyles = "" }: props) {
+function Button({
+  text,
+  icon,
+  color,
+  animate,
+  moreStyles = "",
+  onClick,
+}: props) {
   const [isHovered, setHovered] = useState(false);
   return (
     <button
+      onClick={onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={`${color} ${moreStyles} p-5 w-52 flex items-center justify-between gap-2 `}

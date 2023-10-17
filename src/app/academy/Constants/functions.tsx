@@ -27,7 +27,7 @@ export function refsDevider(allRefs: Array<reference>) {
   return refs;
 }
 
-export const ImageBaseUrl = (url: string, w?: number, h?: number) => {
+export const ImageBaseUrl = (url?: string, w?: number, h?: number) => {
   return "https://clevercouncil.com/" + url + (w && h ? `?w=${w}&h=${h}` : "");
 };
 
@@ -75,7 +75,6 @@ export function parseDescription(
     /<div>\s*<p><b>(.*?)<\/b><\/p>\s*<span>(.*?)<\/span>\s*<\/div>/g;
   //@ts-ignore
   const matches = [...inputString.matchAll(regex)];
-
   const result = matches.map((match, id) => {
     const title = match[1].trim();
     const content = match[2].trim();

@@ -1,5 +1,5 @@
 "use client";
-import { getCategories } from "@/app/academy/Services/api";
+import { getCategories } from "@/app/Services/api";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 

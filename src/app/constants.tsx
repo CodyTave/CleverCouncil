@@ -385,3 +385,12 @@ export const Clevers = [
     ],
   },
 ];
+
+export const ContactPageData = {
+  title: "Contact",
+  subTitle: "Besoin d'aide ? Nous sommes à votre disposition !",
+  text: `Nous vous remercions pour votre intérêt et vous prions de bien
+  vouloir remplir Notre conseiller client prendra attache avec
+  vous dans les meilleurs délais afin de répondre à votre besoin
+  de manière précise.`,
+};

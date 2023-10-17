@@ -1,4 +1,4 @@
-import { getCategoryFormations } from "@/app/academy/Services/api";
+import { getCategoryFormations } from "@/app/Services/api";
 import Link from "next/link";
 import FormationCard from "./FormationCard";
 

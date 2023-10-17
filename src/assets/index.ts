@@ -65,6 +65,7 @@ import transfoPhoto from "./digTransfo.jpg";
 import conseilPhoto from "./council.jpg";
 import csecurityPhoto from "./cyber.jpg";
 import techdefaultOffer from "./techDefault.jpg";
+import notfound from "./notfound.svg";
 export {
   LogoAca,
   LogoTech,
@@ -124,4 +125,5 @@ export {
   csecurityPhoto,
   transfoPhoto,
   techdefaultOffer,
+  notfound,
 };

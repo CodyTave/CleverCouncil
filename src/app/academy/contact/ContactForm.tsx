@@ -1,15 +1,102 @@
 "use client";
-
-import { arroww, contact, contact_hv, patter_bg } from "@/assets";
+import { arroww, check, contact, contact_hv, patter_bg } from "@/assets";
 import Button from "../../Components/Button";
 import Input from "../../Components/Input";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect, createContext } from "react";
+import { ContactPageData } from "@/app/constants";
+import { postContact } from "@/app/Services/api";
 
 export default function ContactForm() {
   const [Hovered, setHovered] = useState(contact);
-  const [isAnimating, setAnimating] = useState(false);
+  const [Submitted, setSubmmited] = useState(false);
+  const [dirtyForm, setDirty] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    telephone: "",
+    commentaire: "",
+  });
+  const [validation, setValidation] = useState({
+    name: "",
+    email: "",
+    telephone: "",
+    commentaire: "",
+  });
+  useEffect(() => {
+    if (Object.values(form).every((value) => value === "")) {
+      setHovered(contact);
+    } else {
+      setHovered(contact_hv);
+    }
+    if (dirtyForm) {
+      handleValidation();
+    }
+  }, [form]);
+  const handleChange = (event: any) => {
+    const { name, value } = event.target;
+    setForm((prevForm) => ({
+      ...prevForm,
+      [name]: value,
+    }));
+  };
+  const handleValidation = () => {
+    Object.entries(form).map(([key, value]) => {
+      if (value === "") {
+        setValidation((prev) => ({
+          ...prev,
+          [key]: "Ce champ est obligatoire ",
+        }));
+      } else {
+        if (key === "email") {
+          const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+          !emailRegex.test(value)
+            ? setValidation((prev) => ({
+                ...prev,
+                [key]: "veuillez saisir un email valide",
+              }))
+            : setValidation((prev) => ({
+                ...prev,
+                [key]: "",
+              }));
+        } else if (key === "telephone") {
+          const phoneRegex =
+            /^(?:\+\d{1,3}[-. ]?)?\(?\d{3}\)?[-. ]?\d{3}[-. ]?\d{4}$/;
+          !phoneRegex.test(value)
+            ? setValidation((prev) => ({
+                ...prev,
+                [key]: "veuillez saisir un numero tel valide ",
+              }))
+            : setValidation((prev) => ({
+                ...prev,
+                [key]: "",
+              }));
+        } else {
+          setValidation((prev) => ({
+            ...prev,
+            [key]: "",
+          }));
+        }
+      }
+    });
+  };
+  const handleSubmit = () => {
+    setDirty(true);
+    handleValidation();
+    if (Object.values(form).every((value) => value !== "")) {
+      postContact(form).then(() => {
+        setDirty(false);
+        setForm({
+          name: "",
+          email: "",
+          telephone: "",
+          commentaire: "",
+        });
+        setSubmmited(true);
+      });
+    }
+  };
   return (
     <div className="mlg:mt-28 mb-28 mt-16 sm:px-32 min-[455px]:px-20 px-5">
       <div className="grid gap-8">
@@ -19,7 +106,7 @@ export default function ContactForm() {
           transition={{ duration: 1, ease: "anticipate" }}
           className="sm:text-5xl text-3xl font-black text-secondary-0 uppercase"
         >
-          Contact
+          {ContactPageData.title}
         </motion.h1>
         <div className="pl-5 block relative overflow-hidden">
           <AnimatePresence>
@@ -29,13 +116,10 @@ export default function ContactForm() {
               transition={{ duration: 1, ease: "anticipate" }}
             >
               <h2 className="sm:text-xl text-aca-0 font-semibold">
-                Besoin d&apos;aide ? Nous sommes à votre disposition !
+                {ContactPageData.subTitle}
               </h2>
               <p className=" sm:text-base text-sm max-w-2xl text-secondary-0 font-medium">
-                Nous vous remercions pour votre intérêt et vous prions de bien
-                vouloir remplir Notre conseiller client prendra attache avec
-                vous dans les meilleurs délais afin de répondre à votre besoin
-                de manière précise.
+                {ContactPageData.text}
               </p>
             </motion.div>
           </AnimatePresence>
@@ -45,36 +129,65 @@ export default function ContactForm() {
       <div className="grid xlg:grid-cols-2 gap-16 mt-10 ">
         <div className="grid gap-10 xlg:order-1 order-2">
           <div className="grid gap-5">
-            <Input theme="light" ph="Nom et Prenom" />
-            <Input theme="light" ph="Email" type="email" />
-            <Input theme="light" ph="Telephone" type="tel" />
-            <Input theme="light" ph="Message" type="textarea" />
+            <Input
+              isSubmitted={Submitted}
+              validation={validation["name"]}
+              onChange={handleChange}
+              name="name"
+              theme="light"
+              ph="Nom et Prenom"
+            />
+            <Input
+              isSubmitted={Submitted}
+              validation={validation["email"]}
+              onChange={handleChange}
+              name="email"
+              theme="light"
+              ph="Email"
+              type="email"
+            />
+            <Input
+              isSubmitted={Submitted}
+              validation={validation["telephone"]}
+              onChange={handleChange}
+              name="telephone"
+              theme="light"
+              ph="Telephone"
+              type="tel"
+            />
+            <Input
+              isSubmitted={Submitted}
+              validation={validation["commentaire"]}
+              onChange={handleChange}
+              name="commentaire"
+              theme="light"
+              ph="Commentaire"
+              type="textarea"
+            />
             <Button
+              onClick={handleSubmit}
               moreStyles="text-white mt-5 w-full"
               text="Envoyer"
               animate="translate-x-2"
               icon={arroww}
               color="bg-aca-0 hover:bg-aca-1 transall"
             />
+            {Submitted && (
+              <div className="flex  gap-3 text-[#59c67a] font-black uppercase fadeInBlur">
+                <Image className="w-5" alt="" src={check} />
+                Merci de nous avoir contacté, nous vous répondrons dès que
+                possible
+              </div>
+            )}
           </div>
         </div>
-        <div
-          onMouseEnter={() => {
-            !isAnimating && setHovered(contact_hv);
-          }}
-          onMouseLeave={() => {
-            !isAnimating && setHovered(contact);
-          }}
-          className="w-full h-full block relative xlg:order-2 order-1"
-        >
+        <div className="w-full h-full block relative xlg:order-2 order-1">
           <AnimatePresence mode="popLayout">
             <motion.img
               key={Hovered.src}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onAnimationStart={() => setAnimating(true)}
-              onAnimationComplete={() => setAnimating(false)}
               className="w-full h-full object-cover"
               src={Hovered.src}
               alt=""

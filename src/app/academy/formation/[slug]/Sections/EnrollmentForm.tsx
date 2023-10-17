@@ -2,7 +2,13 @@ import Form from "@/app/Components/Form";
 import { desk } from "@/assets";
 import Image from "next/image";
 
-export default function EnrollmentForm() {
+export default function EnrollmentForm({
+  Category,
+  Formation,
+}: {
+  Category: string;
+  Formation: string;
+}) {
   return (
     <div className="bg-secondary-0 block relative sm:px-32 min-[455px]:px-20 px-5 text-left text-white py-20 ">
       <div className="grid mxl:grid-cols-2 z-0">
@@ -15,7 +21,7 @@ export default function EnrollmentForm() {
           </p>
         </div>
         <div className="grid z-10">
-          <Form />
+          <Form Formation={Formation} Category={Category} />
         </div>
       </div>
       <Image
