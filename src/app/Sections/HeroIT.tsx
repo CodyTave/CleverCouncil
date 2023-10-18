@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Button from "../Components/Button";
 import { arroww, plus } from "@/assets";
+import Link from "next/link";
 export default function HeroIT() {
   const [titleHovered, setHovered] = useState(false);
   const [autoPlayPrevented, setAPerror] = useState(false);
@@ -114,20 +115,24 @@ export default function HeroIT() {
             {heroData.parag}
           </motion.p>
           <div className="flex mxl:flex-row flex-col">
-            <Button
-              moreStyles="ml-5 mt-5 text-light-1"
-              animate="translate-x-2"
-              color="bg-secondary-0"
-              text="Contactez-Nous"
-              icon={arroww}
-            />
-            <Button
-              moreStyles="ml-5 mt-5 text-light-1"
-              animate="rotate-180"
-              color="bg-tech-1"
-              text="Nos Offres"
-              icon={plus}
-            />
+            <Link href={"/technology/contact"}>
+              <Button
+                moreStyles="ml-5 mt-5 text-light-1"
+                animate="translate-x-2"
+                color="bg-secondary-0"
+                text="Contactez-Nous"
+                icon={arroww}
+              />
+            </Link>
+            <Link href={"#offre"}>
+              <Button
+                moreStyles="ml-5 mt-5 text-light-1"
+                animate="rotate-180"
+                color="bg-tech-1"
+                text="Nos Offres"
+                icon={plus}
+              />
+            </Link>
           </div>
         </div>
       </div>

@@ -10,7 +10,10 @@ export default function EnrollmentForm({
   Formation: string;
 }) {
   return (
-    <div className="bg-secondary-0 block relative sm:px-32 min-[455px]:px-20 px-5 text-left text-white py-20 ">
+    <div
+      id="inscription"
+      className="bg-secondary-0 block relative sm:px-32 min-[455px]:px-20 px-5 text-left text-white py-20 "
+    >
       <div className="grid mxl:grid-cols-2 z-0">
         <div className="grid gap-5 h-fit">
           <h1 className="text-4xl font-black uppercase max-w-2xl">

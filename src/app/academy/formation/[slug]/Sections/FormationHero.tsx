@@ -3,6 +3,7 @@ import Duration from "@/app/Components/Duration";
 import { ImageBaseUrl } from "@/app/academy/Constants/functions";
 import { arroww, pattern } from "@/assets";
 import Image from "next/image";
+import Link from "next/link";
 
 interface props {
   Formation: {
@@ -28,13 +29,15 @@ function FormationHero({
           </p>
           <div className="w-[1.5px] h-48 bg-aca-0 absolute top-0 left-0" />
         </div>
-        <Button
-          animate="translate-x-2"
-          icon={arroww}
-          color="bg-aca-0"
-          text="Je m'inscris"
-          moreStyles="uppercase ml-5 mt-5"
-        />
+        <Link href={"#inscription"}>
+          <Button
+            animate="translate-x-2"
+            icon={arroww}
+            color="bg-aca-0"
+            text="Je m'inscris"
+            moreStyles="uppercase ml-5 mt-5"
+          />
+        </Link>
       </div>
       <div className="flex justify-center mxl:items-end  ">
         <div className="block relative md:w-[550px] w-full -mb-14 xlg:mr-0 mr-auto">

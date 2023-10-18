@@ -27,6 +27,7 @@ function Input({
     bg: "bg-secondary-4 border",
     focusBg: "bg-[#434594]",
     border: "border-[#595baf]",
+    validationBorder: "border-red-700 ",
     ph: "placeholder:text-[#7071b3]",
   };
   const light = {
@@ -34,6 +35,7 @@ function Input({
     bg: "bg-gray-100 border",
     focusBg: "border",
     border: "",
+    validationBorder: "border-red-300 ",
     ph: "text-secondary-0",
   };
   const [themeSetting, setTheme] = useState<{
@@ -41,6 +43,7 @@ function Input({
     bg: string;
     focusBg: string;
     border: string;
+    validationBorder: string;
     ph: string;
   }>();
   useEffect(() => {
@@ -65,7 +68,9 @@ function Input({
     <div>
       <div
         className={`text-white ${
-          validation === "" ? themeSetting?.border : "border-red-300"
+          validation === ""
+            ? themeSetting?.border
+            : themeSetting?.validationBorder
         } ${
           InputValue === "" ? themeSetting?.bg : themeSetting?.focusBg
         } px-4 py-2 ${
@@ -110,7 +115,7 @@ function Input({
         )}
       </div>
       {validation !== "" && (
-        <span className="text-xs text-red-600 fadeInBlur">{validation}</span>
+        <span className={`text-xs text-red-400 fadeInBlur`}>{validation}</span>
       )}
     </div>
   );

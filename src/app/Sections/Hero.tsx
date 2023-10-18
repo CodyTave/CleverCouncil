@@ -2,9 +2,9 @@ import { arroww, dropLogo, heroPhotofull, plus } from "@/assets";
 import { useEffect, useRef, useState } from "react";
 import { heroContent } from "../academy/Constants/constants";
 import { AnimatePresence, motion } from "framer-motion";
-import { Link } from "react-scroll";
 import Image from "next/image";
 import Button from "../Components/Button";
+import Link from "next/link";
 
 function Hero() {
   const [selectedHero, setHero] = useState(heroContent[0]);
@@ -75,7 +75,7 @@ function Hero() {
               </motion.p>
             </AnimatePresence>
             <div className="flex mxl:flex-row flex-col">
-              <Link smooth to="contact">
+              <Link href={"/academy/contact"}>
                 <Button
                   moreStyles="ml-5 mt-5"
                   animate="translate-x-2"
@@ -84,7 +84,7 @@ function Hero() {
                   icon={arroww}
                 />
               </Link>
-              <Link smooth to="offre">
+              <Link href={"#offre"}>
                 <Button
                   moreStyles="ml-5 mt-5"
                   animate="rotate-180"

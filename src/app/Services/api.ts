@@ -63,3 +63,11 @@ export async function postContact(form: { [key: string]: string }) {
     console.error(err);
   }
 }
+export async function postInscription(form: { [key: string]: string }) {
+  try {
+    const resp = await api.post(`/inscription`, form);
+    return resp.data;
+  } catch (err: any) {
+    console.error(err);
+  }
+}

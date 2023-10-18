@@ -82,9 +82,14 @@ export default function ContactForm() {
     });
   };
   const handleSubmit = () => {
-    setDirty(true);
+    if (!dirtyForm) {
+      setDirty(true);
+      handleValidation();
+      return;
+    }
     handleValidation();
-    if (Object.values(form).every((value) => value !== "")) {
+
+    if (Object.values(validation).every((value) => value === "")) {
       postContact(form).then(() => {
         setDirty(false);
         setForm({

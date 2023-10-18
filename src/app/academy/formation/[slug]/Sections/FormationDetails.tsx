@@ -6,6 +6,7 @@ import { listDecoder } from "@/app/academy/Constants/functions";
 import ListItem from "@/app/Components/ListItem";
 import Button from "@/app/Components/Button";
 import { arroww } from "@/assets";
+import Link from "next/link";
 interface props {
   Formation: {
     courseObjectifs: string;
@@ -64,13 +65,15 @@ function FormationDetails({
           <ListItem key={item} text={item} bt={id === 0} index={id} />
         ))}
       </div>
-      <Button
-        animate="translate-x-2"
-        icon={arroww}
-        color="bg-aca-0 text-white"
-        text="Je m'inscris"
-        moreStyles="uppercase mt-10"
-      />
+      <Link href={"#inscription"}>
+        <Button
+          animate="translate-x-2"
+          icon={arroww}
+          color="bg-aca-0 text-white"
+          text="Je m'inscris"
+          moreStyles="uppercase mt-10"
+        />
+      </Link>
     </div>
   );
 }
