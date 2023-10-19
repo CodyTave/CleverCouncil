@@ -95,7 +95,9 @@ export default function HeroIT() {
               </div>
               <span className="text-tech-1">&</span>
             </div>
-            <span>{heroData.title[1]}</span>
+            <span className="sm:text-5xl min-[400px]:text-4xl min-[330px]:text-3xl text-2xl">
+              {heroData.title[1]}
+            </span>
           </motion.h1>
         </AnimatePresence>
         <div className=" relative mt-10 ">

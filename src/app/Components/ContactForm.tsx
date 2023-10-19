@@ -1,14 +1,18 @@
 "use client";
 import { arroww, check, contact, contact_hv, patter_bg } from "@/assets";
-import Button from "../../Components/Button";
-import Input from "../../Components/Input";
+import Button from "./Button";
+import Input from "./Input";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState, useEffect, createContext } from "react";
 import { ContactPageData } from "@/app/constants";
 import { postContact } from "@/app/Services/api";
 
-export default function ContactForm() {
+export default function ContactForm({
+  clever,
+}: {
+  clever: "academy" | "technology";
+}) {
   const [Hovered, setHovered] = useState(contact);
   const [Submitted, setSubmmited] = useState(false);
   const [dirtyForm, setDirty] = useState(false);
@@ -103,13 +107,15 @@ export default function ContactForm() {
     }
   };
   return (
-    <div className="mlg:mt-28 mb-28 mt-16 sm:px-32 min-[455px]:px-20 px-5">
+    <div className="mlg:mt-28 mb-28 mt-16 sm:px-32 min-[455px]:px-20 px-5 text-left">
       <div className="grid gap-8">
         <motion.h1
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1, ease: "anticipate" }}
-          className="sm:text-5xl text-3xl font-black text-secondary-0 uppercase"
+          className={`sm:text-5xl text-3xl font-black ${
+            clever === "technology" ? "text-tech-1" : "text-secondary-0"
+          } uppercase`}
         >
           {ContactPageData.title}
         </motion.h1>
@@ -120,7 +126,11 @@ export default function ContactForm() {
               animate={{ x: 0 }}
               transition={{ duration: 1, ease: "anticipate" }}
             >
-              <h2 className="sm:text-xl text-aca-0 font-semibold">
+              <h2
+                className={`sm:text-xl ${
+                  clever === "technology" ? "text-tech-0" : "text-aca-0"
+                } font-semibold`}
+              >
                 {ContactPageData.subTitle}
               </h2>
               <p className=" sm:text-base text-sm max-w-2xl text-secondary-0 font-medium">
@@ -128,7 +138,11 @@ export default function ContactForm() {
               </p>
             </motion.div>
           </AnimatePresence>
-          <div className="bg-aca-0 h-full w-[1.5px] absolute top-0 left-0 fadeInBlur" />
+          <div
+            className={` ${
+              clever === "technology" ? "bg-tech-0" : "bg-aca-0"
+            } h-full w-[1.5px] absolute top-0 left-0 fadeInBlur`}
+          />
         </div>
       </div>
       <div className="grid xlg:grid-cols-2 gap-16 mt-10 ">
@@ -175,7 +189,11 @@ export default function ContactForm() {
               text="Envoyer"
               animate="translate-x-2"
               icon={arroww}
-              color="bg-aca-0 hover:bg-aca-1 transall"
+              color={` ${
+                clever === "technology"
+                  ? "bg-tech-0 hover:bg-tech-1"
+                  : "bg-aca-0 hover:bg-aca-1"
+              } transall`}
             />
             {Submitted && (
               <div className="flex  gap-3 text-[#59c67a] font-black uppercase fadeInBlur">

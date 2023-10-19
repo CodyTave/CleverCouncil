@@ -1,9 +1,11 @@
 "use client";
 import { address, phone } from "@/assets";
-import { contactInfo } from "../constants";
+import { academyContactInfo, techContactInfo } from "../constants";
 import Image from "next/image";
 
 function Contact({ clever }: { clever: "academy" | "technology" }) {
+  const contactInfo =
+    clever === "technology" ? techContactInfo : academyContactInfo;
   return (
     <div id="contact" className=" h-[460px] relative">
       <iframe

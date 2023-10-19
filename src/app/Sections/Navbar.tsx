@@ -34,33 +34,35 @@ function Navbar({ splitbg = false, scroll = false, nav }: props) {
           <Image
             className="cursor-pointer"
             alt="Clever Council"
-            src={nav === "academy" ? LogoAca : LogoTech}
+            src={
+              nav === "academy" ? LogoAca : splitbg ? LogoTech : LogoWhiteTech
+            }
           />
         </Link>
-        {navLinks.map((nav) => (
-          <span key={nav.id}>
-            {!scroll || nav.link ? (
+        {navLinks.map((navig) => (
+          <span key={navig.id}>
+            {!scroll || navig.link ? (
               <Link
-                href={nav.link ? nav.link : "/academy/#" + nav.id}
+                href={navig.link ? navig.link : `/${nav}/#` + navig.id}
                 scroll
                 className={`${
-                  splitbg ? nav.textClr : "font-semibold text-white"
+                  splitbg ? navig.textClr : "font-semibold text-white"
                 } text-sm transall cursor-pointer text-left hover:opacity-60 `}
               >
-                {nav.title.split(" ").map((wrd, index) => (
+                {navig.title.split(" ").map((wrd, index) => (
                   <div key={index}>{wrd}</div>
                 ))}
               </Link>
             ) : (
               <Scroll
-                to={nav.id}
+                to={navig.id}
                 smooth
                 offset={-30}
                 className={`${
-                  splitbg ? nav.textClr : "font-semibold text-white"
+                  splitbg ? navig.textClr : "font-semibold text-white"
                 } text-sm transall cursor-pointer text-left hover:opacity-60 `}
               >
-                {nav.title.split(" ").map((wrd, index) => (
+                {navig.title.split(" ").map((wrd, index) => (
                   <div key={index}>{wrd}</div>
                 ))}
               </Scroll>
@@ -94,24 +96,24 @@ function Navbar({ splitbg = false, scroll = false, nav }: props) {
             toggled ? "h-[280px] mt-10" : "h-0 mt-0"
           } `}
         >
-          {navLinks.map((nav) => (
-            <span key={nav.id}>
-              {!scroll || nav.link ? (
+          {navLinks.map((navig) => (
+            <span key={navig.id}>
+              {!scroll || navig.link ? (
                 <Link
                   scroll
-                  href={nav.link ? nav.link : "/academy/#" + nav.id}
+                  href={navig.link ? navig.link : `/${nav}/#` + navig.id}
                   className={`fadeInBlur text-light-0 transall cursor-pointer`}
                 >
-                  {nav.title}
+                  {navig.title}
                 </Link>
               ) : (
                 <Scroll
-                  to={nav.id}
+                  to={navig.id}
                   smooth
                   offset={-30}
                   className={`fadeInBlur text-light-0 transall cursor-pointer`}
                 >
-                  {nav.title}
+                  {navig.title}
                 </Scroll>
               )}
             </span>

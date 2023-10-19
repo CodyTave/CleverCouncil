@@ -251,7 +251,7 @@ export const adn = [
   },
 ];
 
-export const contactInfo = {
+export const academyContactInfo = {
   email: "contact@clevercouncil.com",
   phone: ["+212 520 510 215", "+212 665 141 848"],
   address: `1 Rue Abou Taour, Socrate, 4éme 
@@ -265,7 +265,33 @@ export const contactInfo = {
     {
       id: "instagram",
       icon: ig,
-      link: "https://www.instagram.com/clevercouncil/",
+      link: "https://www.instagram.com/cleveracademy__/",
+    },
+    {
+      id: "linkedin",
+      icon: linked,
+      link: "https://www.linkedin.com/company/clevercouncil",
+    },
+  ],
+  map: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13296.237779205787!2d-7.6448628!3d33.5778058!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x510627aa3e56343e!2sClever%20council!5e0!3m2!1sfr!2sma!4v1653836719671!5m2!1sfr!2sma",
+  location:
+    "https://www.google.com/maps?ll=33.571441,-7.651677&z=14&t=m&hl=fr&gl=MA&mapclient=embed&cid=5838397579076187198",
+};
+export const techContactInfo = {
+  email: "contact@clevercouncil.com",
+  phone: ["+212 520 510 215", "+212 665 141 848"],
+  address: `1 Rue Abou Taour, Socrate, 4éme 
+  étage N12 - Casablanca, 20370`,
+  socialMedia: [
+    {
+      id: "facebook",
+      icon: fb,
+      link: "https://www.facebook.com/clevercouncil",
+    },
+    {
+      id: "instagram",
+      icon: ig,
+      link: "https://www.instagram.com/clev.ertechnologyservices/",
     },
     {
       id: "linkedin",
@@ -278,7 +304,38 @@ export const contactInfo = {
     "https://www.google.com/maps?ll=33.571441,-7.651677&z=14&t=m&hl=fr&gl=MA&mapclient=embed&cid=5838397579076187198",
 };
 
-export const footerLinks = [
+export const techFooterLinks = [
+  {
+    id: "about",
+    title: "Qui sommes-nous",
+    subLinks: [
+      { id: 1, title: "A propos", link: "#qsn" },
+      { id: 2, title: "Notre ADN", link: "#adn" },
+      { id: 3, title: "Portfolio", link: "" },
+      { id: 4, title: "Contact", link: "/technology/contact" },
+    ],
+  },
+  {
+    id: "fastaccess",
+    title: "ACCÈS RAPIDE",
+    subLinks: [
+      { id: 1, title: "Offre intégrée", link: "#offre" },
+      { id: 2, title: "Technologies", link: "#techs" },
+      { id: 3, title: "Integration SI", link: "" },
+      { id: 4, title: "Transformation Digitale", link: "" },
+    ],
+  },
+  {
+    id: "clever",
+    title: "Clever Council",
+    subLinks: [
+      { id: 0, title: "Clever", link: "/" },
+      { id: 1, title: "Academy", link: "/academy" },
+      { id: 2, title: "Technology Services", link: "/technology" },
+    ],
+  },
+];
+export const academyFooterLinks = [
   {
     id: "about",
     title: "Qui sommes-nous",

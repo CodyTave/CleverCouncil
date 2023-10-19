@@ -4,6 +4,18 @@ import Program from "./Sections/Program";
 import EnrollmentForm from "./Sections/EnrollmentForm";
 import SuggestedFormations from "./Sections/SuggestedFormations";
 import { getCategoryByID, getFormationBySlug } from "../../../Services/api";
+import { Metadata } from "next";
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const formation = await getFormationBySlug(params.slug);
+  return {
+    title: formation.title,
+    description: formation.shortDescription,
+  };
+}
 
 export default async function page({ params }: { params: { slug: string } }) {
   const { slug } = params;

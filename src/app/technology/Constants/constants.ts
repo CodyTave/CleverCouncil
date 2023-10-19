@@ -29,6 +29,6 @@ export const navLinks: Array<{
     id: "contact",
     title: "CONTACTEZ NOUS",
     textClr: "text-white font-semibold",
-    link: "/academy/contact",
+    link: "/technology/contact",
   },
 ];

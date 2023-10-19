@@ -142,8 +142,8 @@ export default function Home() {
                 router.push(selectedClever.links[0].url);
               }
             }}
-            className={`transall relative w-auto max-w-[70%]
-            g_xs:h-auto h-1/2 object-cover 
+            className={`transall relative w-auto max-w-[65%]
+            g_xs:h-auto h-[60%] object-cover 
             ${selectedClever.id === clev.id && "cursor-pointer"}
             ${selectedClever.position} ${
               selectedClever.id !== clev.id
@@ -190,11 +190,11 @@ export default function Home() {
             className="flex justify-center items-center gap-1 transall"
           >
             <span
-              className={`font-bold text-xs ${selectedClever.text} hover:underline cursor-pointer transall`}
+              className={`font-bold g_xxs:text-xs text-[0.5rem] ${selectedClever.text} hover:underline cursor-pointer transall`}
             >
               {link.title}
             </span>
-            <svg width="9" height="8" viewBox="0 0 12 11">
+            <svg width="8" height="7" viewBox="0 0 12 11">
               <path
                 className="transall"
                 fill={selectedClever.svg}

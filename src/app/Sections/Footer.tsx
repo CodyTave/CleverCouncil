@@ -1,15 +1,17 @@
 "use client";
-import { Link } from "react-scroll";
 import { LogoWhite } from "@/assets";
-import { footerLinks } from "../constants";
+import { academyFooterLinks, techFooterLinks } from "../constants";
 import Image from "next/image";
+import Link from "next/link";
 
 function Footer({ clever }: { clever: "academy" | "technology" }) {
+  const footerLinks =
+    clever === "technology" ? techFooterLinks : academyFooterLinks;
   return (
     <footer>
       <div className="bg-secondary-0 text-white py-16 sm:px-32 xs:px-20 px-5">
         <div className="grid xlg:grid-cols-4 mlg:grid-cols-3 sm:grid-cols-2  gap-y-10">
-          <Link smooth to="top" className="w-fit h-fit cursor-pointer">
+          <Link href="/" className="w-fit h-fit cursor-pointer">
             <Image alt="Clever Council Academy" src={LogoWhite} />
           </Link>
           {footerLinks.map((item) => (
@@ -25,12 +27,13 @@ function Footer({ clever }: { clever: "academy" | "technology" }) {
                         clever === "technology" ? "bg-tech-0" : "bg-aca-0"
                       }`}
                     ></span>
-                    <a
+                    <Link
+                      scroll
                       className="hover:underline hover:text-white transall"
                       href={link.link}
                     >
                       {link.title}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
