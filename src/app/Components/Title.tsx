@@ -161,7 +161,7 @@ function Title({ prtitle, setAnimating }: props) {
         COM & EVENTS
       </div>
       <div
-        className={`aca text-center  g_msm:text-right -translate-y-[200%]
+        className={`aca text-right  g_msm:text-right -translate-y-[200%]
         text-aca-0   tracking-widest`}
       >
         ACADEMY

@@ -352,8 +352,6 @@ export const academyFooterLinks = [
     subLinks: [
       { id: 1, title: "Offre intégrée", link: "#offre" },
       { id: 2, title: "Formations", link: "#formation" },
-      { id: 3, title: "Integration SI", link: "" },
-      { id: 4, title: "Transformation Digitale", link: "" },
     ],
   },
   {

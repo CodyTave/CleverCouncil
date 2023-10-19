@@ -143,7 +143,7 @@ export default function Home() {
               }
             }}
             className={`transall relative w-auto max-w-[65%]
-            g_xs:h-auto h-[60%] object-cover 
+            g_xs:h-auto h-[55%] object-cover 
             ${selectedClever.id === clev.id && "cursor-pointer"}
             ${selectedClever.position} ${
               selectedClever.id !== clev.id
@@ -181,7 +181,7 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="absolute bottom-10 g_xxs:left-10 left-5 flex text-left gap-2">
+      <div className="absolute bottom-8 g_xxs:left-10 left-1/2 g_xxs:translate-x-0 -translate-x-1/2 flex text-left gap-2">
         {selectedClever.links.map((link) => (
           <a
             target="__blank"
@@ -190,7 +190,7 @@ export default function Home() {
             className="flex justify-center items-center gap-1 transall"
           >
             <span
-              className={`font-bold g_xxs:text-xs text-[0.5rem] ${selectedClever.text} hover:underline cursor-pointer transall`}
+              className={`font-bold g_xxs:text-xs text-[0.6rem] ${selectedClever.text} hover:underline cursor-pointer transall`}
             >
               {link.title}
             </span>
