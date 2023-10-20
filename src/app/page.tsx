@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Clevers } from "./constants";
 import { useState } from "react";
 
-export default function page() {
+export default function Home() {
   const [isHovered, setHovered] = useState<string | null>(null);
   return (
     <div className="grid w-screen h-screen lg:grid-cols-2 fixed inset-0">
