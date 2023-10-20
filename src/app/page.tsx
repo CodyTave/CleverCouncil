@@ -1,12 +1,28 @@
 "use client";
 import Image from "next/image";
 import { Clevers } from "./constants";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [isHovered, setHovered] = useState<string | null>(null);
+  const router = useRouter();
+  useEffect(() => {
+    if (window.innerWidth <= 768) {
+      if (isHovered === "tech") {
+        window.scrollTo(0, 0);
+      } else if (isHovered === "academy") {
+        window.scrollTo(0, document.body.scrollHeight);
+      }
+    }
+  }, [isHovered]);
+  function Goto(id: string, url: string) {
+    if (isHovered === id) {
+      router.push(url);
+    }
+  }
   return (
-    <div className="grid w-screen h-screen lg:grid-cols-2 fixed inset-0">
+    <div className="grid w-screen h-screen lg:grid-cols-2 overflow-hidden ">
       {Clevers.map((clv) => (
         <div
           key={clv.id}
@@ -24,21 +40,20 @@ export default function Home() {
                 ? "md:w-[70%] w-[85%]"
                 : isHovered === null
                 ? "md:w-[55%] w-[80%]"
-                : "md:w-[35%] w-[60%]"
+                : "md:w-[35%] w-[75%]"
             }   lg:h-3/5 transall`}
           >
             <Image
-              className="mr-auto sm:w-28 w-16"
+              className="mr-auto sm:w-28 w-16 "
               alt="academy"
               src={clv.logo}
             />
-            <div className="w-full h-full block relative">
+            <div
+              onClick={() => Goto(clv.id, clv.links[0].url)}
+              className="w-full h-full block relative cursor-pointer"
+            >
               <Image
-                className={`w-full h-full object-cover ${
-                  isHovered !== clv.id && isHovered !== null
-                    ? "grayscale"
-                    : "grayscale-0"
-                }`}
+                className={`w-full h-full object-cover`}
                 alt=""
                 src={clv.image}
               />
@@ -49,7 +64,7 @@ export default function Home() {
                 className={`w-full h-full ${clv.gradient} absolute inset-0`}
               />
             </div>
-            <div className="flex flex-wrap text-left mr-auto gap-2">
+            <div className="flex text-left mr-auto gap-2 transall">
               {clv.links.map((link) => (
                 <a
                   target="__blank"
