@@ -1,4 +1,7 @@
 import {
+  LogoAllWhiteTech,
+  LogoWhiteAca,
+  LogoWhiteTech,
   aca,
   conseil,
   conseilPhoto,
@@ -368,18 +371,13 @@ export const academyFooterLinks = [
 //////// clever gate page
 export const Clevers = [
   {
-    index: 1,
     id: "tech",
-    title: "TECH SERVICES",
-    position: "translate-x-1/2",
+    title: "TECHNOLOGY SERVICES",
     image: mfTech,
-    logo: tech,
-    bg: "bg-tech-2",
-    stroke: "stroke-tech",
-    textresp: "g_msm:text-tech-1",
-    text: "text-tech-1",
-    color: "bg-tech-1",
+    logo: LogoAllWhiteTech,
+    bg: "bg-[#C34081]",
     svg: "#B02D6E",
+    gradient: "techGradient",
     links: [
       {
         id: "ws",
@@ -404,18 +402,14 @@ export const Clevers = [
     ],
   },
   {
-    index: 2,
     id: "academy",
     title: "ACADEMY",
-    position: "-translate-x-1/2 ",
     image: mfAca,
-    logo: aca,
-    bg: "bg-aca-2",
-    stroke: "stroke-aca",
-    textresp: "g_msm:text-aca-1",
-    text: "text-aca-1",
-    color: "bg-aca-1",
+    logo: LogoWhiteAca,
+    bg: "bg-[#2B7A9B]",
+    gradient: "acaGradient",
     svg: "#109CD7",
+
     links: [
       {
         id: "ws",

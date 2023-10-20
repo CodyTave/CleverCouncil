@@ -99,6 +99,12 @@ img {
   all: unset;
 }
 
+.acaGradient {
+  background: linear-gradient(180deg, rgba(47, 49, 101, 0) 0%, #2f3165 90.62%);
+}
+.techGradient {
+  background: linear-gradient(180deg, rgba(207, 65, 135, 0) 0%, #b02d6e 86.46%);
+}
 /* .dropdown {
   appearance: none; 
   -webkit-appearance: none; 

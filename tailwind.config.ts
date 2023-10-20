@@ -37,20 +37,11 @@ const config: Config = {
         ph: { 0: "#ababc4", 1: "#e3e3ec", 2: "#f4f4f4", 3: "#636496" },
       },
       screens: {
-        ///clever gate breakpoints
-        g_xl: "1850px",
-        g_lg: "1600px",
-        g_md: "1300px",
-        g_mmd: "990px",
-        g_sm: "750px",
-        g_msm: "600px",
-        g_xs: "550px",
-        g_xxs: "390px",
-        g_tn: "175px",
         ///clever landing pages bps
         tn: "265px",
         xxs: "350px",
         xs: "420px",
+        msm: "485px",
         sm: "640px",
         md: "768px",
         xmd: "820px",

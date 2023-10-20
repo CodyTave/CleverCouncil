@@ -11,6 +11,7 @@ import LogoAca from "./LogoAca.svg";
 import LogoTech from "./LogoTech.svg";
 import LogoWhite from "./LogoWhite.svg";
 import LogoWhiteTech from "./LogoWhiteTech.svg";
+import LogoWhiteAca from "./LogoWhiteAca.svg";
 import toggleIc from "./Toggle.svg";
 import plus from "./plus.svg";
 import arroww from "./arroww.svg";
@@ -66,6 +67,7 @@ import conseilPhoto from "./council.jpg";
 import csecurityPhoto from "./cyber.jpg";
 import techdefaultOffer from "./techDefault.jpg";
 import notfound from "./notfound.svg";
+import LogoAllWhiteTech from "./LogoAllWhiteTech.svg";
 export {
   LogoAca,
   LogoTech,
@@ -126,4 +128,6 @@ export {
   transfoPhoto,
   techdefaultOffer,
   notfound,
+  LogoWhiteAca,
+  LogoAllWhiteTech,
 };
