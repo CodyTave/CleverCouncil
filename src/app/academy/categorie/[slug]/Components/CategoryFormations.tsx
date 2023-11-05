@@ -20,7 +20,11 @@ export default async function CategoryFormations({ id }: { id: string }) {
         </h1>
         <div className="grid sm:gap-10 gap-5 lg:overflow-auto  pb-10 ">
           {Formations.map((form) => (
-            <Link href={"/academy/formation/" + form.link} key={form.id}>
+            <Link
+              prefetch
+              href={"/academy/formation/" + form.link}
+              key={form.id}
+            >
               <FormationCard form={form} />
             </Link>
           ))}

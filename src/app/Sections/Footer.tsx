@@ -11,7 +11,7 @@ function Footer({ clever }: { clever: "academy" | "technology" }) {
     <footer>
       <div className="bg-secondary-0 text-white py-16 sm:px-32 xs:px-20 px-5">
         <div className="grid xlg:grid-cols-4 mlg:grid-cols-3 sm:grid-cols-2  gap-y-10">
-          <Link href="/" className="w-fit h-fit cursor-pointer">
+          <Link prefetch href="/" className="w-fit h-fit cursor-pointer">
             <Image alt="Clever Council Academy" src={LogoWhite} />
           </Link>
           {footerLinks.map((item) => (
@@ -28,6 +28,7 @@ function Footer({ clever }: { clever: "academy" | "technology" }) {
                       }`}
                     ></span>
                     <Link
+                      prefetch
                       scroll
                       className="hover:underline hover:text-white transall"
                       href={link.link}

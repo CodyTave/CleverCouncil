@@ -117,7 +117,7 @@ export default function HeroIT() {
             {heroData.parag}
           </motion.p>
           <div className="flex mxl:flex-row flex-col">
-            <Link href={"/technology/contact"}>
+            <Link prefetch href={"/technology/contact"}>
               <Button
                 moreStyles="ml-5 mt-5 text-light-1"
                 animate="translate-x-2"
@@ -126,7 +126,7 @@ export default function HeroIT() {
                 icon={arroww}
               />
             </Link>
-            <Link href={"#offre"}>
+            <Link prefetch href={"#offre"}>
               <Button
                 moreStyles="ml-5 mt-5 text-light-1"
                 animate="rotate-180"

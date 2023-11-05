@@ -46,6 +46,7 @@ function SuggestedFormations({
           {isLoaded
             ? SimilarCourses.map((course, index) => (
                 <Link
+                  prefetch
                   className="cursor-pointer"
                   key={index}
                   href={"/academy/formation/" + course.link}

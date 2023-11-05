@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Clevers } from "./constants";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Home() {
   const [isHovered, setHovered] = useState<string | null>(null);
@@ -22,7 +23,7 @@ export default function Home() {
     }
   }
   return (
-    <div className="grid w-screen h-screen lg:grid-cols-2 overflow-hidden ">
+    <div className="grid w-screen h-screen lg:grid-cols-2 overflow-hidden transall ">
       {Clevers.map((clv) => (
         <div
           key={clv.id}
@@ -35,7 +36,7 @@ export default function Home() {
           <div
             onMouseEnter={() => setHovered(clv.id)}
             onMouseLeave={() => setHovered(null)}
-            className={`flex flex-col lg:gap-10 gap-5 ${
+            className={`flex flex-col lg:gap-10 gap-5  ${
               isHovered === clv.id
                 ? "md:w-[70%] w-[85%]"
                 : isHovered === null
@@ -57,35 +58,52 @@ export default function Home() {
                 alt=""
                 src={clv.image}
               />
-              <span className="absolute bottom-7 left-5 text-white msm:text-3xl xs:text-2xl font-bold z-10">
+              <span
+                className={`absolute bottom-7 left-5 transall ${
+                  isHovered === clv.id
+                    ? "msm:text-3xl xs:text-2xl"
+                    : "msm:text-2xl xs:text-xl"
+                } text-white  font-bold z-10`}
+              >
                 {clv.title}
               </span>
               <div
                 className={`w-full h-full ${clv.gradient} absolute inset-0`}
               />
             </div>
-            <div className="flex text-left mr-auto gap-2 transall">
-              {clv.links.map((link) => (
-                <a
-                  target="__blank"
-                  href={link.url}
-                  key={link.id}
-                  className="flex justify-center items-center gap-1 transall"
-                >
-                  <span
-                    className={`sm:text-xs text-[0.5rem] text-white hover:underline cursor-pointer transall`}
+            <div className="flex min-h-[25px]">
+              <AnimatePresence mode="wait">
+                {isHovered === clv.id && (
+                  <motion.div
+                    initial={{ x: 100, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: 50, opacity: 0 }}
+                    className="flex text-left mr-auto gap-2 transall"
                   >
-                    {link.title}
-                  </span>
-                  <svg width="8" height="7" viewBox="0 0 12 11">
-                    <path
-                      className="transall"
-                      fill="white"
-                      d="M9.142 0.603373L3.0821 0.232926L2.96008 2.2289L7.60841 2.51305L0.119065 9.13949L1.44435 10.6374L8.9337 4.01092L8.64954 8.65925L10.6455 8.78127L11.016 2.72136C11.0482 2.19201 10.869 1.67152 10.5175 1.27434C10.1661 0.877159 9.67134 0.635812 9.142 0.603373Z"
-                    />
-                  </svg>
-                </a>
-              ))}
+                    {clv.links.map((link) => (
+                      <a
+                        target="__blank"
+                        href={link.url}
+                        key={link.id}
+                        className="flex justify-center items-center gap-1 transall"
+                      >
+                        <span
+                          className={`sm:text-xs text-[0.5rem] text-white hover:underline cursor-pointer transall`}
+                        >
+                          {link.title}
+                        </span>
+                        <svg width="8" height="7" viewBox="0 0 12 11">
+                          <path
+                            className="transall"
+                            fill="white"
+                            d="M9.142 0.603373L3.0821 0.232926L2.96008 2.2289L7.60841 2.51305L0.119065 9.13949L1.44435 10.6374L8.9337 4.01092L8.64954 8.65925L10.6455 8.78127L11.016 2.72136C11.0482 2.19201 10.869 1.67152 10.5175 1.27434C10.1661 0.877159 9.67134 0.635812 9.142 0.603373Z"
+                          />
+                        </svg>
+                      </a>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </div>

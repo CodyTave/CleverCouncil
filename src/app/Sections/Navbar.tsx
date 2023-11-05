@@ -30,7 +30,7 @@ function Navbar({ splitbg = false, scroll = false, nav }: props) {
             : "bg-tech-1"
         }  p-10 px-32 justify-items-center items-center gap-20 `}
       >
-        <Link href={"/" + nav}>
+        <Link prefetch href={"/" + nav}>
           <Image
             className="cursor-pointer"
             alt="Clever Council"
@@ -43,6 +43,7 @@ function Navbar({ splitbg = false, scroll = false, nav }: props) {
           <span key={navig.id}>
             {!scroll || navig.link ? (
               <Link
+                prefetch
                 href={navig.link ? navig.link : `/${nav}/#` + navig.id}
                 scroll
                 className={`${
@@ -100,6 +101,7 @@ function Navbar({ splitbg = false, scroll = false, nav }: props) {
             <span key={navig.id}>
               {!scroll || navig.link ? (
                 <Link
+                  prefetch
                   scroll
                   href={navig.link ? navig.link : `/${nav}/#` + navig.id}
                   className={`fadeInBlur text-light-0 transall cursor-pointer`}

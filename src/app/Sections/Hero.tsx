@@ -75,7 +75,7 @@ function Hero() {
               </motion.p>
             </AnimatePresence>
             <div className="flex mxl:flex-row flex-col">
-              <Link href={"/academy/contact"}>
+              <Link prefetch href={"/academy/contact"}>
                 <Button
                   moreStyles="ml-5 mt-5"
                   animate="translate-x-2"
@@ -84,7 +84,7 @@ function Hero() {
                   icon={arroww}
                 />
               </Link>
-              <Link href={"#offre"}>
+              <Link prefetch href={"#offre"}>
                 <Button
                   moreStyles="ml-5 mt-5"
                   animate="rotate-180"

@@ -65,7 +65,7 @@ function FormationDetails({
           <ListItem key={item} text={item} bt={id === 0} index={id} />
         ))}
       </div>
-      <Link href={"#inscription"}>
+      <Link prefetch href={"#inscription"}>
         <Button
           animate="translate-x-2"
           icon={arroww}

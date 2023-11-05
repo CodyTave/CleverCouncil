@@ -36,7 +36,11 @@ function Categories() {
         >
           {isLoaded
             ? categories.map((cat) => (
-                <Link href={"/academy/categorie/" + cat.link} key={cat.id}>
+                <Link
+                  prefetch
+                  href={"/academy/categorie/" + cat.link}
+                  key={cat.id}
+                >
                   <CategoryCard
                     img={ImageBaseUrl(cat.Image, 376, 267)}
                     title={cat.title}
