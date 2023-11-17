@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="w-screem h-screen bg-tech-2 flex flex-col justify-center items-center gap-10">
+    <div className="w-screen h-screen bg-tech-2 flex flex-col justify-center items-center gap-10">
       <Image alt="not found" src={notfound} />
       <Link
         prefetch

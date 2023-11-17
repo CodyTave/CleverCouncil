@@ -23,7 +23,7 @@ export default function Home() {
     }
   }
   return (
-    <div className="grid w-screen h-screen lg:grid-cols-2 overflow-hidden transall ">
+    <div className="grid w-screen h-[100dvh] lg:grid-cols-2 overflow-hidden transall ">
       {Clevers.map((clv) => (
         <div
           key={clv.id}
