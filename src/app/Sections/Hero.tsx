@@ -8,27 +8,32 @@ import Link from "next/link";
 
 function Hero() {
   const [selectedHero, setHero] = useState(heroContent[0]);
-  const [isAnimating, setAnimting] = useState(false);
+  const [isAnimating, setAnimating] = useState(false);
   const timeout = useRef<NodeJS.Timeout>();
+  const ANIMATION_INTERVAL = 2800; // Interval for animating
+  const HERO_CHANGE_INTERVAL = 6000; // Interval for changing the hero content
+
   useEffect(() => {
-    setTimeout(() => {
+    const animationIntervalId = setInterval(() => {
       if (isAnimating) {
-        setAnimting(false);
+        setAnimating(false);
       }
-    }, 2800); //security for layout when it gets spammed
+    }, ANIMATION_INTERVAL); // Security for layout when it gets spammed
+
+    return () => clearInterval(animationIntervalId);
   }, [isAnimating]);
+
   useEffect(() => {
-    timeout.current = setTimeout(() => {
+    const heroIntervalId = setInterval(() => {
       if (!isAnimating) {
-        if (selectedHero.id === 2) {
-          setHero(heroContent[0]);
-        } else if (selectedHero.id === 1) {
-          setHero(heroContent[1]);
-        }
+        const newHero = heroContent.find((hero) => hero.id === selectedHero.id);
+        setHero(newHero || heroContent[0]);
       }
-    }, 6000);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedHero]);
+    }, HERO_CHANGE_INTERVAL);
+
+    // Clear hero interval on component unmount
+    return () => clearInterval(heroIntervalId);
+  }, [isAnimating, selectedHero, heroContent]);
 
   return (
     <>
@@ -43,7 +48,7 @@ function Hero() {
               transition={{ duration: 0.8, ease: "backInOut" }}
               className="xxs:text-6xl text-5xl text-left font-semibold transall"
               onAnimationStart={() => {
-                setAnimting(true);
+                setAnimating(true);
               }}
             >
               {selectedHero.title}

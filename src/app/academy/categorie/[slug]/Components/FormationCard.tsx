@@ -14,7 +14,7 @@ interface Formation {
 function FormationCard({ form }: { form: Formation }) {
   return (
     <>
-      <div className="sm:flex grid gap-5" key={form.id}>
+      <div className="sm:flex grid gap-5 text-left" key={form.id}>
         <div className="sm:w-64 sm:h-44 shrink-0 flex relative">
           <img
             className="object-cover  flex shrink-0 h-full w-full "
@@ -34,7 +34,7 @@ function FormationCard({ form }: { form: Formation }) {
           <Duration type={form.durationType} duration={form.duration} />
         </div>
       </div>
-      <span className="flex justify-center w-[90%] h-[1px] bg-ph-3 opacity-20 sm:mt-10 mt-5" />
+      <span className="flex justify-center w-full h-[1px] bg-ph-3 opacity-20 sm:mt-10 mt-5" />
     </>
   );
 }

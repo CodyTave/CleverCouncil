@@ -68,6 +68,8 @@ import csecurityPhoto from "./cyber.jpg";
 import techdefaultOffer from "./techDefault.jpg";
 import notfound from "./notfound.svg";
 import LogoAllWhiteTech from "./LogoAllWhiteTech.svg";
+import searchIcon from "./search.svg";
+import noresult from "./noresult.svg";
 export {
   LogoAca,
   LogoTech,
@@ -130,4 +132,6 @@ export {
   notfound,
   LogoWhiteAca,
   LogoAllWhiteTech,
+  searchIcon,
+  noresult,
 };
