@@ -30,7 +30,7 @@ export default function SearchModal() {
     <div
       onMouseEnter={handleExpanding}
       onMouseLeave={handleExpanding}
-      className={`fixed flex items-center justify-center smtransall bottom-10 right-10 h-12 z-50 `}
+      className={`fixed flex items-center justify-center smtransall sm:bottom-10 sm:right-10 bottom-5 right-5 h-12 z-50 `}
     >
       <button
         onClick={handleSubmit}
