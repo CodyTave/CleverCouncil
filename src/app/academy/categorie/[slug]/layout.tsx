@@ -3,6 +3,7 @@ import Navbar from "../../../Sections/Navbar";
 import Contact from "../../../Sections/Contact";
 import Footer from "../../../Sections/Footer";
 import CategoryHeader from "./Components/CategoryHeader";
+import SearchModal from "@/app/Components/SearchModal";
 
 export default async function CategoryLayout({
   children,
@@ -18,6 +19,7 @@ export default async function CategoryLayout({
       <section>{children}</section>
       <Contact clever="academy" />
       <Footer clever="academy" />
+      <SearchModal />
     </section>
   );
 }

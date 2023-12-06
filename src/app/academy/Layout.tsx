@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import SearchModal from "../Components/SearchModal";
 
 export const metadata: Metadata = {
   title: "Clever Academy",
@@ -15,10 +14,5 @@ export default function AcademyLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <main className="c-academy">
-      {children}
-      <SearchModal />
-    </main>
-  );
+  return <main className="c-academy">{children}</main>;
 }

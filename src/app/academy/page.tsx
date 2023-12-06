@@ -9,6 +9,7 @@ import Categories from "../Sections/Categories";
 import Contact from "../Sections/Contact";
 import Footer from "../Sections/Footer";
 import Dna from "../Sections/Dna";
+import SearchModal from "../Components/SearchModal";
 
 export default function LandingPage() {
   return (
@@ -22,6 +23,7 @@ export default function LandingPage() {
       <Dna clever="academy" />
       <Contact clever="academy" />
       <Footer clever="academy" />
+      <SearchModal />
     </section>
   );
 }
