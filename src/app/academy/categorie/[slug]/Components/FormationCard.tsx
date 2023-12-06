@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { ImageBaseUrl } from "@/app/academy/Constants/functions";
-import Duration from "../../../../Components/Duration";
+import Duration from "@/app/Components/Duration";
 
 interface Formation {
   id: number;
@@ -17,7 +17,7 @@ function FormationCard({ form }: { form: Formation }) {
       <div className="sm:flex grid gap-5 text-left" key={form.id}>
         <div className="sm:w-64 sm:h-44 shrink-0 flex relative">
           <img
-            className="object-cover  flex shrink-0 h-full w-full "
+            className="object-cover flex shrink-0 h-full w-full "
             src={ImageBaseUrl(form.profilImage)}
             alt={form.title}
           />

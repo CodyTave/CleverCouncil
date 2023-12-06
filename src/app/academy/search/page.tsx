@@ -1,41 +1,15 @@
-"use client";
 import SearchInput from "@/app/Components/SearchInput";
-import algoliasearch from "algoliasearch";
-import { useState } from "react";
 import FormationCard from "../categorie/[slug]/Components/FormationCard";
 import Link from "next/link";
 import Image from "next/image";
 import { noresult } from "@/assets";
-interface Formation {
-  id: number;
-  title: string;
-  profilImage: string;
-  shortDescription: string;
-  duration: string;
-  durationType: string;
-  link: string;
-}
-export default function Search({
+import { getSearchResults } from "@/app/Services/api";
+export default async function Search({
   searchParams,
 }: {
   searchParams?: { query: string | undefined };
 }) {
-  const [Results, setResults] = useState<Formation[]>([]);
-  const client = algoliasearch(
-    "GZO7ZC5AI7",
-    "da5c67edc8f02316b00b2e7cb5eb567c"
-  );
-  const index = client.initIndex("formations");
-
-  index
-    .search(searchParams?.query || "")
-    .then(({ hits }: any) => {
-      setResults(hits);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-
+  const Results = await getSearchResults({ query: searchParams?.query || "" });
   return (
     <div className="grid gap-10 my-24 sm:px-32 xs:px-20 px-5">
       <h1 className="text-4xl font-black uppercase text-aca-0">
@@ -49,8 +23,8 @@ export default function Search({
         </div>
       ) : (
         <div className="grid mxl:grid-cols-2 gap-5">
-          {Results.map((hit) => (
-            <Link href={"formation/" + hit.link}>
+          {Results.map((hit: any) => (
+            <Link key={hit.id} href={"formation/" + hit.link}>
               <FormationCard form={hit} />
             </Link>
           ))}

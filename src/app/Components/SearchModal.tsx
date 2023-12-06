@@ -21,6 +21,7 @@ export default function SearchModal() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    setQuery("");
     setExpanded(false);
     router.push(`/academy/search?query=${encodeURIComponent(query)}`);
   };

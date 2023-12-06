@@ -1,17 +1,23 @@
+"use server";
 import axios, { AxiosInstance } from "axios";
-const authToken =
-  "eyJhbGciOiJIUzI1NiJ9.eyJVc2VybmFtZSI6IkNsZXZlckFjYWRlbXkiLCJQYXNzd29yZCI6IkUwTTNDenZyZEJwWiJ9.Q4xb-M7QoAlqxmdlq9QDQpDYKtxHdjCeY6gGEs82vMQ";
-
+const authToken = process.env.API_TOKEN;
 const api: AxiosInstance = axios.create({
-  baseURL: "https://clevercouncil.com/api/m",
+  baseURL: process.env.BASE_URL,
   timeout: 10000,
   headers: {
     Authorization: `Bearer ${authToken}`,
     "Content-Type": "application/json",
   },
 });
-export default api;
-
+const AlgoliaApi: AxiosInstance = axios.create({
+  baseURL: process.env.ALGOLIA_BASE_URL,
+  timeout: 10000,
+  headers: {
+    "X-Algolia-Api-Key": process.env.ALGOLIA_API_KEY,
+    "X-Algolia-Application-Id": process.env.ALGOLIA_APP_ID,
+    "Content-Type": "application/json",
+  },
+});
 export async function getCategories() {
   try {
     const resp = await api.get("/categories");
@@ -67,6 +73,15 @@ export async function postInscription(form: { [key: string]: string }) {
   try {
     const resp = await api.post(`/inscription`, form);
     return resp.data;
+  } catch (err: any) {
+    console.error(err);
+  }
+}
+
+export async function getSearchResults(query: { query: string }) {
+  try {
+    const resp = await AlgoliaApi.post("", query);
+    return resp.data.hits;
   } catch (err: any) {
     console.error(err);
   }
