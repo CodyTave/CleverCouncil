@@ -60,8 +60,10 @@ export default function Home() {
               />
               <span
                 className={`absolute bottom-7 left-5 transall ${
+                  isHovered && isHovered !== clv.id ? "hidden" : "block"
+                } ${
                   isHovered === clv.id
-                    ? "msm:text-3xl xs:text-2xl"
+                    ? "msm:text-3xl xs:text-2xl "
                     : "msm:text-2xl xs:text-xl"
                 } text-white  font-bold z-10`}
               >
